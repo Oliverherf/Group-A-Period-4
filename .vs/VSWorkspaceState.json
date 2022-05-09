@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Don2Loot",
+    "\\Don2Loot\\Don2Loot",
+    "\\Don2Loot\\Don2Loot\\Don2Loot"
   ],
-  "SelectedNode": "\\C:\\Users\\dimit\\Source\\Repos\\Oliverherf\\Group-A-Period-4",
+  "SelectedNode": "\\Don2Loot\\Don2Loot\\Don2Loot\\MainPage.xaml",
   "PreviewInSolutionExplorer": false
 }
