@@ -9,7 +9,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="4*"/>    
                 <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
             
         <Grid.ColumnDefinitions>
                <ColumnDefinition Width="400"/>
@@ -18,10 +18,30 @@
         </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Text="Label 1" BackgroundColor="White"/>
                 <Label Grid.Row="1" Grid.Column="0" Text="MAMAMA" BackgroundColor="Red"/>
-                     <Grid>
-                         
-                     </Grid>
                 <Label Grid.Row="2" Grid.Column="0" Text="MAMAMA" BackgroundColor="Red"/>
-                <Label Grid.Row="3" Grid.Column="0" Text="MAMAMA" BackgroundColor="Red"/>
+                <Grid Grid.Row="2" Grid.RowSpan="2"  BackgroundColor="Orange">
+                    <Grid.RowDefinitions>
+                         <RowDefinition Height="100"/>
+                         <RowDefinition Height="0.7*"/>
+                         <RowDefinition Height="0.7*"/>
+                         <RowDefinition Height="0.7*"/>
+                         <RowDefinition Height="2*"/>
+
+            </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="400"/>
+                     <ColumnDefinition Width="*"/>
+                     <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Task Listining:" BackgroundColor="Blue"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Task1" BackgroundColor="Purple"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Task2" BackgroundColor="Purple"/>
+                    <Label Grid.Row="3" Grid.Column="0" Text="Task3" BackgroundColor="Purple"/>
+                    <Label Grid.Row="4" Grid.Column="0" Text="Task4" BackgroundColor="Purple"/>
+
+        </Grid>
+        <Label Grid.Row="3" Grid.Column="0" Text="MAMAMA" BackgroundColor="Red"/>
+
     </Grid>    
 </ContentPage>
