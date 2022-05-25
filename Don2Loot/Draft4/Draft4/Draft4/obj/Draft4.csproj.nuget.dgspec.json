@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {}
   },
   "projects": {
-    "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj",
         "projectName": "Draft4",
-        "projectPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,7 +65,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
