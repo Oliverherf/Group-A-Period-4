@@ -3177,11 +3177,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj",
       "projectName": "Draft4.Android",
-      "projectPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj",
+      "projectPath": "C:\\Users\\User\\Source\\Repos\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\obj\\",
+      "outputPath": "C:\\Users\\User\\Source\\Repos\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -3198,8 +3198,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {
-              "projectPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj"
+            "C:\\Users\\User\\Source\\Repos\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {
+              "projectPath": "C:\\Users\\User\\Source\\Repos\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj"
             }
           }
         }
