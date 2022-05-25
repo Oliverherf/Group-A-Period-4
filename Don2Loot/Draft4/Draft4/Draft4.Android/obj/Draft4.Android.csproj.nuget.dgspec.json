@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj": {}
+    "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj": {
+    "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj",
+        "projectUniqueName": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj",
         "projectName": "Draft4.Android",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj",
+        "projectPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\Draft4.Android.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\obj\\",
+        "outputPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -28,8 +28,8 @@
         "frameworks": {
           "monoandroid12.0": {
             "projectReferences": {
-              "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {
-                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj"
+              "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {
+                "projectPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj"
               }
             }
           }
@@ -50,14 +50,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {
+    "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj",
+        "projectUniqueName": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj",
         "projectName": "Draft4",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj",
+        "projectPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\Draft4.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\obj\\",
+        "outputPath": "D:\\Group-A-Period-4\\Don2Loot\\Draft4\\Draft4\\Draft4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -111,7 +111,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
