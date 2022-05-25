@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "3vYNUCmhBbUFv4dc2mn75k8lXR392Pbefx+tIP0dhOKNwUDUlOJF+J1MC5G1AEfjWL7k087HAH3MJbkeGX7e/w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dimit\\Source\\Repos\\Oliverherf\\Group-A-Period-4\\Don2Loot\\Don2Loot\\Don2Loot\\Don2Loot.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dimit\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\dimit\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
