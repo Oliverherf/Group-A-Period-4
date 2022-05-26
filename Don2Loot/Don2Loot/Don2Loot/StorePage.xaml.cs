@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace Don2Loot
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StorePage : ContentView
+    public partial class StorePage : ContentPage
     {
         public StorePage()
         {
