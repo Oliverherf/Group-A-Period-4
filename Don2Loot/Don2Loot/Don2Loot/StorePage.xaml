@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Class="Don2Loot.StorePage"
+             NavigationPage.HasNavigationBar="false">
+    <Grid BackgroundColor="#2D2F30">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label TextColor="#FE931F"  Padding="25,0,0,0" Grid.Column="0" Grid.Row="0" FontSize="50">
+            &lt;
+        </Label>
+        <Image Source="coin" Grid.Column="2" Grid.Row="0" HorizontalOptions="End" Margin="0,5,-5,0" />
+        <Label FontSize="Medium" TextColor="White" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" HorizontalTextAlignment="Start" MinimumWidthRequest="1000" FlowDirection="LeftToRight" VerticalOptions="Center" Padding="65,0,0,0">
+            1000000
+        </Label>
+        <flv:FlowListView FlowColumnCount="2" x:Name="myListView" HasUnevenRows="True">
+            <flv:FlowListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Frame BackgroundColor="AliceBlue">
+
+                            </Frame>
+                            <Label FontSize="Large" FontAttributes="Bold" TextColor="White"  Text="{Binding Path=Key.Title}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </flv:FlowListView.GroupHeaderTemplate>
+        </flv:FlowListView>
+    </Grid>
+</ContentPage>
