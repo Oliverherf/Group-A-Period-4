@@ -4,12 +4,11 @@
              x:Class="Don2Loot.StorePage"
              NavigationPage.HasNavigationBar="false">
     <Grid BackgroundColor="#2D2F30">
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -23,19 +22,26 @@
         <Label FontSize="Medium" TextColor="White" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" HorizontalTextAlignment="Start" MinimumWidthRequest="1000" FlowDirection="LeftToRight" VerticalOptions="Center" Padding="65,0,0,0">
             1000000
         </Label>
-        <flv:FlowListView FlowColumnCount="2" x:Name="myListView" HasUnevenRows="True">
-            <flv:FlowListView.GroupHeaderTemplate>
+        <flv:FlowListView x:Name="storePageView" HasUnevenRows="True" FlowItemsSource="{Binding Path=Key}"
+                          Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3"
+                          FlowColumnCount="2">
+            <flv:FlowListView.FlowColumnTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Frame BackgroundColor="AliceBlue">
-
-                            </Frame>
-                            <Label FontSize="Large" FontAttributes="Bold" TextColor="White"  Text="{Binding Path=Key.Title}"/>
-                        </StackLayout>
-                    </ViewCell>
+                    <Frame BackgroundColor="Gray" CornerRadius="20" Padding="10" HorizontalOptions="Fill" Margin="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name}" TextColor="White" FontSize="Medium" Grid.Row="0" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                            <Image Source="{Binding Image}" Aspect="AspectFit" HeightRequest="100" Grid.Row="1"/>
+                            <Label Text="{Binding Cost}" TextColor="White" FontSize="Medium" Grid.Row="2" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                            <Image Source="coin" Aspect="AspectFit" HeightRequest="50" Grid.Row="2" HorizontalOptions="End"/>
+                        </Grid>
+                    </Frame>
                 </DataTemplate>
-            </flv:FlowListView.GroupHeaderTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
         </flv:FlowListView>
     </Grid>
 </ContentPage>

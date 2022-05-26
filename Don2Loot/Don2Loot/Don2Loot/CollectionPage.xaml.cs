@@ -18,6 +18,16 @@ namespace Don2Loot
             InitializeComponent();
             FlowListView.Init();
             this.BindingContext = this;
+
+            List<imageGroup> Groups = new List<imageGroup> {
+                new imageGroup("Anime")
+                {
+                    new image{Image = "Attack_titan"},
+                    new image{Image = "Gojo"},
+                    new image{Image = "Kaneki"}
+                }
+            };
+            myListView.FlowItemsSource = Groups;
         }
     }
 
