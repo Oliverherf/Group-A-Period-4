@@ -2,29 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Don2Loot.NewTask"
-             NavigationPage.HasNavigationBar="false">
-
-    <StackLayout BackgroundColor="#2D2F30">
-
-        <Label Text="REGISTRATION" HorizontalTextAlignment="Center" TextColor="White" FontSize="30" Margin="50"/>
-        <Frame BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F" WidthRequest="200" HeightRequest="50">
-            <Entry x:Name="txtUserName" Placeholder ="Name" TextColor="White" PlaceholderColor="WhiteSmoke" HorizontalOptions="Center" WidthRequest="200"></Entry>
-        </Frame>
-        <Frame  BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="50">
-            <Entry x:Name="txtEmail" Placeholder ="Email" TextColor="White" PlaceholderColor="WhiteSmoke"  HorizontalOptions="Center" WidthRequest="200"></Entry>
-        </Frame>
-        <Button
-                Text="Submit"
-                TextColor="White"
-                BackgroundColor="#FE931F"   
-                BorderColor="#FE931F"
-                BorderWidth="10"
-                CornerRadius="500"
-                HorizontalOptions="End"
-                Margin ="50"
-                WidthRequest="100"
-                HeightRequest="50"
-                Clicked ="Button_Clicked"/>
-
+             NavigationPage.HasNavigationBar="false"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New Item"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    <!--<StackLayout BackgroundColor="#2D2F30">
+        <Label TextColor="Orange"  Padding="25,0,0,0" Grid.Column="0" Grid.Row="0" FontSize="50">
+            &lt;
+        </Label>
+        <Editor BackgroundColor="#2D2F30" Margin="20" TextColor="Orange" HeightRequest="500" />
     </StackLayout>
-</ContentPage>
+</ContentPage>   
+    -->
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="25" BackgroundColor="#2D2F30">
+            <Label TextColor="Orange"  Padding="5" Grid.Column="0" Grid.Row="0" FontSize="50">
+                &lt;
+            </Label>
+            <Label Text="Task Title" FontSize="Medium" TextColor="#FFFFFF"  />
+            <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" TextColor="Orange" />
+            <Label Text="Description" FontSize="Medium" TextColor="#FFFFFF" />
+            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Orange"  />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage> 
+    
+   
