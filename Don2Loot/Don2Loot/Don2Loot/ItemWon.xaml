@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Don2Loot.ItemWon"
-             BackgroundColor="#2D2F30">
+             BackgroundColor="#2D2F30"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -42,7 +43,7 @@
                 <Frame Grid.Column="0" Grid.Row="1" BackgroundColor="#FE931F" CornerRadius="30" Margin="10">
                     <Image Source="coin"/> <!-- This is just a placeholder image -->
                 </Frame>
-                <Label Grid.Column="0" Grid.Row="2" TextColor="White" Text="See your collection" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Button Grid.Column="0" Grid.Row="2" TextColor="#FE931F" Text="SEE YOUR COLLECTION" BackgroundColor="#2D2F30" FontAttributes="Bold" Clicked="collectionPageButton"/>
             </Grid>
         </Grid>
     </ContentPage.Content>

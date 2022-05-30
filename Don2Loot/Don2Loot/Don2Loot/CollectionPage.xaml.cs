@@ -29,6 +29,11 @@ namespace Don2Loot
             };
             myListView.FlowItemsSource = Groups;
         }
+
+        private void backButton(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
     }
 
     //Listview requires lists of objects

@@ -17,9 +17,8 @@
     -->
     <ContentPage.Content>
         <StackLayout Spacing="10" Padding="25" BackgroundColor="#2D2F30">
-            <Label TextColor="Orange"  Padding="5" Grid.Column="0" Grid.Row="0" FontSize="50">
-                &lt;
-            </Label>
+            <Button Text="&lt;" TextColor="#FE931F" Padding="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start"
+                FontSize="50" Clicked="backButton" BackgroundColor="#2D2F30"/>
             <Label Text="Task Title" FontSize="Medium" TextColor="#FFFFFF"  />
             <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" TextColor="Orange" />
             <Label Text="Description" FontSize="Medium" TextColor="#FFFFFF" />

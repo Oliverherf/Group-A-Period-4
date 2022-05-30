@@ -16,5 +16,10 @@ namespace Don2Loot
         {
             InitializeComponent();
         }
+
+        private void backButton(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
     }
 }

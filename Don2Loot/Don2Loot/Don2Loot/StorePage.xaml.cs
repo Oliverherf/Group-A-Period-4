@@ -27,6 +27,11 @@ namespace Don2Loot
             };
             storePageView.FlowItemsSource = crates;
         }
+
+        private void backButton(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
     }
 
     public class crate

@@ -187,11 +187,13 @@
                              BorderColor="Orange"
                              Margin="1"
                              >
-                        <Label Text="YOUR REWARDS"
+                        <Button Text="YOUR COLLECTION"
                                TextColor="Orange"
                                HorizontalOptions="Center"
                                FontSize="Medium"
-                               FontAttributes="Bold"/>
+                               FontAttributes="Bold"
+                               BackgroundColor="White"
+                               Clicked="collectionPageButton"/>
                     </Frame>
 
                     <Frame   Grid.Row="2" 
@@ -200,11 +202,13 @@
                              BorderColor="Orange"
                              Margin="1">
 
-                        <Label Text="NEW TASKS"
+                        <Button Text="NEW TASKS"
                                TextColor="Orange"
                                HorizontalOptions="Center"
                                FontSize="Medium"
-                               FontAttributes="Bold"/>
+                               FontAttributes="Bold"
+                               BackgroundColor="White"
+                               Clicked="newTaskButton"/>
                     </Frame>
 
                     <Frame   Grid.Row="3" 

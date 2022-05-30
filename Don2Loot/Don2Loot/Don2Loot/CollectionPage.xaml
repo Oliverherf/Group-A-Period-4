@@ -20,9 +20,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label TextColor="#FE931F"  Padding="25,0,0,0" Grid.Column="0" Grid.Row="0" FontSize="50">
-            &lt;
-        </Label>
+        <Button Text="&lt;" TextColor="#FE931F" Padding="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start"
+                FontSize="50" Clicked="backButton" BackgroundColor="#707070"/>
+
         <Label TextColor="White" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" FontSize="40">
             Your Rewards
         </Label>
