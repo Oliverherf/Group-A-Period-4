@@ -10,7 +10,7 @@ namespace Don2Loot
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new StorePage());
+            MainPage = new NavigationPage(new TaskCompleted());
         }
 
         protected override void OnStart()
