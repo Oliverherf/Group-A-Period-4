@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Don2Loot {
+namespace Don2Loot
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage {
-        public Page1() {
+    public partial class StartUpPage : ContentPage
+    {
+        public StartUpPage()
+        {
             InitializeComponent();
         }
     }
