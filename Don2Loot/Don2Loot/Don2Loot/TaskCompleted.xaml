@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Don2Loot.TaskCompleted">
+             x:Class="Don2Loot.TaskCompleted"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <Grid>
         <Grid.ColumnDefinitions>
@@ -26,7 +27,7 @@
                 </Label.GestureRecognizers>
             </Label>
             <Label Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
-            <Image Grid.Row="0" Grid.Column="2" BackgroundColor="#2D2F30" Source="USD" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+            <Image Grid.Row="0" Grid.Column="2" BackgroundColor="#2D2F30" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="40"/>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -54,7 +55,7 @@
                     <Label Text="+10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="36"/>
                 </Frame>
                 <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" HasShadow="False">
-                    <Image Source="USD" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="60"/>
+                    <Image Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="100"/>
                 </Frame>
             </Grid>
         </Grid>
