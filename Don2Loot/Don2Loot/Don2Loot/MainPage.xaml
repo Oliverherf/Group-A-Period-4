@@ -3,22 +3,225 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Don2Loot.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+    <Grid BackgroundColor="#707070" VerticalOptions="FillAndExpand">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Frame HeightRequest="50"
+               WidthRequest="40"
+               CornerRadius="100" 
+               Padding="0"
+               Grid.Row="0" 
+               Grid.Column="1"
+               IsClippedToBounds="True"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,5,50,0"
+               BorderColor="Orange">
+
+            <Image Source="profile.jpg" 
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Aspect="AspectFill">
+            </Image>
         </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
+
+        <SearchBar Grid.Row="0" 
+                   Grid.Column="4"
+                   VerticalOptions="End"
+                   FontSize="Medium"
+                   PlaceholderColor="White"
+                   Placeholder="Search Bar"
+                   HorizontalTextAlignment="Center"
+                   CancelButtonColor="Red"
+                   TextColor="Black"
+                   TextTransform="Lowercase">
+        </SearchBar>
+
+        <Label 
+            Grid.Row="1" 
+            Grid.Column="1"
+            Grid.ColumnSpan="5" 
+            Text="HEY, OLIVER!" 
+            TextColor="White" 
+            FontSize="40" 
+            HorizontalOptions="StartAndExpand" 
+            Margin="15, 10, 0, 0"
+            FontAttributes="Bold">
         </Label>
-    </StackLayout>
+        <Label Grid.Row="1" 
+               Grid.Column="1"
+               Grid.ColumnSpan="5" 
+               Text="Let's have a look at your tasks" 
+               TextColor="White" 
+               FontSize="25" 
+               HorizontalOptions="StartAndExpand" 
+               Margin="15, 70, 0, 0"
+               FontAttributes="Bold">
+        </Label>
+
+        <Grid Grid.Row="2" 
+              Grid.Column="0" 
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="6"
+              Margin="0,15,0,70"
+              BackgroundColor="Gray">
+
+            <ScrollView Orientation="Horizontal">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame BackgroundColor="#FE931F"
+                           Grid.Column="1"
+                           CornerRadius="15">
+
+                        <Label Text="Introduction to C#: Chapter 1" 
+                               FontSize="Large" 
+                               TextColor="White" 
+                               VerticalOptions="Center"/>
+
+                    </Frame>
+
+                    <Frame BackgroundColor="#FE931F"
+                           Grid.Column="2"
+                           CornerRadius="15">
+
+                        <Label Text="Introduction to C#: Chapter 1" 
+                               FontSize="Large" 
+                               TextColor="White" 
+                               VerticalOptions="Center"/>
+
+                    </Frame>
+
+                </Grid>
+
+            </ScrollView>
+
+        </Grid>
+
+        <Frame BackgroundColor="White"
+               Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="4"
+               Grid.RowSpan="3"
+               CornerRadius="60"
+               Margin="0,70,0,0"/>
+        <Grid Grid.Row="3"
+              Grid.Column="1"
+              Grid.ColumnSpan="4"
+              Grid.RowSpan="3"
+              Margin="0,70,0,0">
+
+
+
+
+            <ScrollView>
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="300" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Frame BackgroundColor="Gray"
+                             Grid.Row="0" 
+                             Grid.Column="1"
+                             CornerRadius="30"
+                             Margin="65,12,65,20">
+
+                    </Frame>
+                    <Frame   Grid.Row="1" 
+                             Grid.Column="1"
+                             CornerRadius="15"
+                             BorderColor="Orange"
+                             Margin="1"
+                             >
+                        <Label Text="YOUR REWARDS"
+                               TextColor="Orange"
+                               HorizontalOptions="Center"
+                               FontSize="Medium"
+                               FontAttributes="Bold"/>
+                    </Frame>
+
+                    <Frame   Grid.Row="2" 
+                             Grid.Column="1"
+                             CornerRadius="15"
+                             BorderColor="Orange"
+                             Margin="1">
+
+                        <Label Text="NEW TASKS"
+                               TextColor="Orange"
+                               HorizontalOptions="Center"
+                               FontSize="Medium"
+                               FontAttributes="Bold"/>
+                    </Frame>
+
+                    <Frame   Grid.Row="3" 
+                             Grid.Column="1"
+                             CornerRadius="15"
+                             BorderColor="Orange"
+                             Margin="1">
+
+                        <Label Text="SETTINGS"
+                               TextColor="Orange"
+                               HorizontalOptions="Center"
+                               FontSize="Medium"
+                               FontAttributes="Bold"/>
+
+                    </Frame>
+
+                    <Frame Grid.Row="4" 
+                           Grid.Column="1"
+                           CornerRadius="15"
+                           BorderColor="Orange"
+                           Margin="1"
+                           >
+
+                        <Label Text="STATS"
+                               TextColor="Orange"
+                               HorizontalOptions="Center"
+                               FontSize="Medium"
+                               FontAttributes="Bold"/>
+
+                    </Frame>
+
+                </Grid>
+
+            </ScrollView>
+
+        </Grid>
+
+    </Grid>
 
 </ContentPage>
