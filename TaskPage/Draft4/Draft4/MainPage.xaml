@@ -36,6 +36,7 @@
                            CancelButtonColor="#FE931F"
                            PlaceholderColor="#FE931F"
                            TextColor="#FE931F"
+                           TextChanged="SearchBar_TextChanged"
                            TextTransform="Lowercase"
                            HorizontalTextAlignment="Center"
                            FontSize="Medium"
@@ -56,14 +57,16 @@
 
 
 
-        <flv:FlowListView  x:Name="myListView" HeightRequest="300" Margin="0,120,50,0" 
-                               Grid.Row="2" Grid.Column="0" SeparatorColor="Red" 
-                               FlowItemsSource="{Binding Path=Key}"
+        <ListView  x:Name="myListView" HeightRequest="300" Margin="0,120,30,0" ItemSelected ="myListView_ItemSelected"
+                                ItemTapped="myListView_ItemTapped"
+                                Grid.Row="2" Grid.Column="0" SeparatorColor="Red" 
+                               ItemsSource="{Binding Path=Key}"
                                HasUnevenRows="True"
-                               FlowColumnCount="1">
-          <flv:FlowListView.FlowColumnTemplate  Grid.Row="3" Grid.Column="0"  Margin="0,0,50,0" HeightRequest="400">
+                               
+                               IsPullToRefreshEnabled="True">
+          <ListView.ItemTemplate  Grid.Row="3" Grid.Column="0"  Margin="0,0,50,0" HeightRequest="400">
              <DataTemplate>
-                    <Frame BackgroundColor="White" CornerRadius="20" Padding="0"  Margin="10">
+                    <Frame  BorderColor="Orange" BackgroundColor="White" Margin="20,0,50,20" Padding="0">
 
 
                         <Grid>
@@ -82,8 +85,8 @@
 
                                      </Frame>-->
 
-                            <Label Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,10"  MinimumWidthRequest="100"
-                                         FontSize="Large" Margin ="0,40,0,0" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" BackgroundColor="White">
+                            <Label Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,10"  MinimumWidthRequest="100" HeightRequest="430"
+                                         FontSize="Large" Margin ="10,30,110,20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" BackgroundColor="White">
 
                             </Label>
 
@@ -108,8 +111,8 @@
                     </Frame>
                 </DataTemplate>
 
-                </flv:FlowListView.FlowColumnTemplate>
-                </flv:FlowListView>
+                </ListView.ItemTemplate>
+                </ListView>
 
 
                     
