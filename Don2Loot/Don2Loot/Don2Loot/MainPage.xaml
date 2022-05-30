@@ -41,6 +41,25 @@
                    Aspect="AspectFill">
             </Image>
         </Frame>
+        
+        <Frame Grid.Row="0"
+               Grid.Column="3"
+               CornerRadius="100"
+               Margin="50,5,5,0"
+               IsClippedToBounds="True"
+               Padding="0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               HeightRequest="50"
+               WidthRequest="50"
+               >
+            <Image Source="coin.png"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Aspect="AspectFill">
+            </Image>
+
+        </Frame>
 
         <SearchBar Grid.Row="0" 
                    Grid.Column="4"
@@ -51,7 +70,9 @@
                    HorizontalTextAlignment="Center"
                    CancelButtonColor="Red"
                    TextColor="Black"
-                   TextTransform="Lowercase">
+                   TextTransform="Lowercase"
+                   FontAttributes="Bold" 
+                   FlowDirection="LeftToRight">
         </SearchBar>
 
         <Label 
@@ -134,9 +155,6 @@
               Grid.ColumnSpan="4"
               Grid.RowSpan="3"
               Margin="0,70,0,0">
-
-
-
 
             <ScrollView>
                 <Grid>
