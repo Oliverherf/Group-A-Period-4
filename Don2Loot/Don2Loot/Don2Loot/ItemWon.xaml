@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Don2Loot.ItemWon">
+             x:Class="Don2Loot.ItemWon"
+             BackgroundColor="#2D2F30">
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -26,7 +27,7 @@
                     </Label.GestureRecognizers>
                 </Label>
                 <Label Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
-                <Image Grid.Row="0" Grid.Column="2" BackgroundColor="#2D2F30" Source="USD" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+                <Image Grid.Row="0" Grid.Column="2" BackgroundColor="#2D2F30" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -39,7 +40,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Text="YOU GOT A RARE ITEM!" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="36" VerticalTextAlignment="Center" BackgroundColor="#2D2F30"/>
                 <Frame Grid.Column="0" Grid.Row="1" BackgroundColor="#FE931F" CornerRadius="30" Margin="10">
-                    <Image Source="USD"/>
+                    <Image Source="coin"/> <!-- This is just a placeholder image -->
                 </Frame>
                 <Label Grid.Column="0" Grid.Row="2" TextColor="White" Text="See your collection" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             </Grid>
