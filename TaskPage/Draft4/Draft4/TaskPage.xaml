@@ -25,7 +25,7 @@
             </Frame>
         </Frame>
 
-        <Label TextColor="#FE931F"  Padding="25,0,0,0" Grid.Column="0" Grid.Row="0" FontSize="50" Text="&lt;"/>
+        <Button TextColor="#FE931F" Clicked="backButton_Clicked" Padding="25,0,0,0" Grid.Column="0" Grid.Row="0" FontSize="50" Text="&lt;"/>
                 <Label Grid.Row="1" Grid.Column="0"  Margin="15,80,50,4" Text="Label 1" BackgroundColor="White"/>
 
         <SearchBar x:Name="Sherlock"

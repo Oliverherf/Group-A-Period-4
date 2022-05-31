@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,19 +9,19 @@ namespace Draft4
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        
+
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         public MainPage()
         {
             InitializeComponent();
             BindingContext = this;
-            task.Add(new TaskInfo { Name = "Working"});
+            task.Add(new TaskInfo { Name = "Working" });
             task.Add(new TaskInfo { Name = "Task2" });
             task.Add(new TaskInfo { Name = "Task3" });
             task.Add(new TaskInfo { Name = "Task4" });
             myListView.ItemsSource = task;
-           // Sherlock.TextChanged += Sherlock_TextChanged;
-                 
+            // Sherlock.TextChanged += Sherlock_TextChanged;
+
         }
 
         private void Sherlock_TextChanged(object sender, TextChangedEventArgs e)
@@ -41,7 +41,7 @@ namespace Draft4
             DisplayAlert("Selected", $"{task.Name}\n", "OK");
         }
 
-        private void myListView_ItemTapped(object sender, ItemTappedEventArgs e )
+        private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var task = e.Item as TaskInfo;
             DisplayAlert("Tapped", $"{task.Name}\n", "OK");
@@ -49,7 +49,7 @@ namespace Draft4
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         //private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -67,6 +67,11 @@ namespace Draft4
             myListView.ItemsSource = null;
             myListView.ItemsSource = task;
             myListView.EndRefresh();
+        }
+
+        private void backButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
         }
     }
 }
