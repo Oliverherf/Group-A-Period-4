@@ -9,20 +9,17 @@ namespace Draft4
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        ObservableCollection<TaskInfo> task;
+        ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         public MainPage()
         {
             InitializeComponent();
-
-                task = new ObservableCollection<TaskInfo>
-                 {
-                   new TaskInfo{Name= "Working" },
-                   new TaskInfo{Name= "Task2" },
-                   new TaskInfo{Name= "Task3" },
-                   new TaskInfo{Name= "Task4" },
-                 };
-                 myListView.ItemsSource = task;
-                 BindingContext = this;
+            BindingContext = this;
+            task.Add(new TaskInfo { Name = "Working"});
+            task.Add(new TaskInfo { Name = "Task2" });
+            task.Add(new TaskInfo { Name = "Task3" });
+            task.Add(new TaskInfo { Name = "Task4" });
+            myListView.ItemsSource = task;
+                 
         }
 
         public class TaskInfo

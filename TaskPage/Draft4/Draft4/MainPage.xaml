@@ -60,55 +60,53 @@
         <ListView  x:Name="myListView" HeightRequest="300" Margin="0,120,30,0" ItemSelected ="myListView_ItemSelected"
                                 ItemTapped="myListView_ItemTapped"
                                 Grid.Row="2" Grid.Column="0" SeparatorColor="Red" 
-                               ItemsSource="{Binding Path=Key}"
-                               HasUnevenRows="True"
-                               
-                               IsPullToRefreshEnabled="True">
+                                HasUnevenRows="True"
+                                IsPullToRefreshEnabled="True">
           <ListView.ItemTemplate  Grid.Row="3" Grid.Column="0"  Margin="0,0,50,0" HeightRequest="400">
              <DataTemplate>
-                    <Frame  BorderColor="Orange" BackgroundColor="White" Margin="20,0,50,20" Padding="0">
+                    <ViewCell>
+                        <Frame  BorderColor="Orange" BackgroundColor="White" Margin="20,0,50,20" Padding="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="400"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--<Frame BorderColor="#FE931F" HeightRequest="200"  Grid.Row="1" Grid.Column="0" VerticalOptions="Center" 
+                                           Margin="0,0,0,0"  HasShadow="True"> -->
+                                <!--Margin="25,-23,80,25"-->
+                                <!--
+
+                                         </Frame>-->
+
+                                <Label Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,10"  MinimumWidthRequest="100" HeightRequest="430"
+                                             FontSize="Large" Margin ="10,30,110,20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" BackgroundColor="White">
+
+                                </Label>
 
 
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
-                            </Grid.RowDefinitions>
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="400"/>
-                            </Grid.ColumnDefinitions>
+                                <!--<Label Grid.Row="2" Grid.Column="0" Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,0" 
+                                        FontSize="Large" Margin ="30,-20,83,30"  HorizontalTextAlignment="Start" FontAttributes="Bold">
 
-                            <!--<Frame BorderColor="#FE931F" HeightRequest="200"  Grid.Row="1" Grid.Column="0" VerticalOptions="Center" 
-                                       Margin="0,0,0,0"  HasShadow="True"> -->
-                            <!--Margin="25,-23,80,25"-->
-                            <!--
+                                  </Label>
 
-                                     </Frame>-->
+                                 <Label Grid.Row="3" Grid.Column="0" Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,0" 
+                                         FontSize="Large" Margin ="30,-20,83,30"  HorizontalTextAlignment="Start" FontAttributes="Bold">
 
-                            <Label Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,10"  MinimumWidthRequest="100" HeightRequest="430"
-                                         FontSize="Large" Margin ="10,30,110,20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" BackgroundColor="White">
+                                 </Label>
 
-                            </Label>
+                                 <Label Grid.Row="4" Grid.Column="0" Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,0" 
+                                         FontSize="Large" Margin ="30,-20,83,30"  HorizontalTextAlignment="Start" FontAttributes="Bold">
 
+                                 </Label>-->
 
-
-                            <!--<Label Grid.Row="2" Grid.Column="0" Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,0" 
-                                    FontSize="Large" Margin ="30,-20,83,30"  HorizontalTextAlignment="Start" FontAttributes="Bold">
-
-                              </Label>
-
-                             <Label Grid.Row="3" Grid.Column="0" Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,0" 
-                                     FontSize="Large" Margin ="30,-20,83,30"  HorizontalTextAlignment="Start" FontAttributes="Bold">
-
-                             </Label>
-
-                             <Label Grid.Row="4" Grid.Column="0" Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,0" 
-                                     FontSize="Large" Margin ="30,-20,83,30"  HorizontalTextAlignment="Start" FontAttributes="Bold">
-
-                             </Label>-->
-
-                        </Grid>
-                    </Frame>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
                 </DataTemplate>
 
                 </ListView.ItemTemplate>
