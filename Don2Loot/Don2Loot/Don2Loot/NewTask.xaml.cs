@@ -15,6 +15,7 @@ namespace Don2Loot
         public NewTask()
         {
             InitializeComponent();
+           
         }
 
         private void backButton(object sender, EventArgs e)

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Don2Loot.NewTask"
+             x:Class="Reg.Task"
              NavigationPage.HasNavigationBar="false"
              Shell.PresentationMode="ModalAnimated"
              Title="New Item"
@@ -17,18 +17,16 @@
     -->
     <ContentPage.Content>
         <StackLayout Spacing="10" Padding="25" BackgroundColor="#2D2F30">
-            <Button Text="&lt;" TextColor="#FE931F" Padding="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start"
-                FontSize="50" Clicked="backButton" BackgroundColor="#2D2F30"/>
+            <Button Text="&lt;" TextColor="Orange"  Padding="5" Grid.Column="0" Grid.Row="0" FontSize="50" Clicked="Next">
+            </Button>
             <Label Text="Task Title" FontSize="Medium" TextColor="#FFFFFF"  />
             <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" TextColor="Orange" />
             <Label Text="Description" FontSize="Medium" TextColor="#FFFFFF" />
-            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Orange"  />
+            <Editor x:Name="editor" Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Orange"/>
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
+                <Button Text="Cancel"  HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"  Clicked="OnSaveButtonClicked"></Button>
+                <Button Text="Save"  HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage> 
-    
-   
+</ContentPage>
