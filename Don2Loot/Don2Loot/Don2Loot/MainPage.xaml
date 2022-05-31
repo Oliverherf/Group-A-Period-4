@@ -4,7 +4,7 @@
              x:Class="Don2Loot.MainPage"
              NavigationPage.HasNavigationBar="false">
 
-    <Grid BackgroundColor="#707070" VerticalOptions="FillAndExpand">
+    <Grid BackgroundColor="#2D2F30" VerticalOptions="FillAndExpand">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="6"/>
@@ -54,11 +54,11 @@
                HeightRequest="50"
                WidthRequest="50"
                >
-            <Image Source="coin.png"
+            <Image Source="coin"
                    VerticalOptions="FillAndExpand"
                    HorizontalOptions="FillAndExpand"
-                   Aspect="AspectFill">
-            </Image>
+                   Aspect="AspectFill"
+                   BackgroundColor="#2D2F30"/>
 
         </Frame>
 
@@ -70,7 +70,7 @@
                    Placeholder="Search Bar"
                    HorizontalTextAlignment="Center"
                    CancelButtonColor="Red"
-                   TextColor="Black"
+                   TextColor="White"
                    TextTransform="Lowercase"
                    FontAttributes="Bold" 
                    FlowDirection="LeftToRight">
@@ -103,7 +103,7 @@
               Grid.RowSpan="2"
               Grid.ColumnSpan="6"
               Margin="0,15,0,70"
-              BackgroundColor="Gray">
+              BackgroundColor="#2D2F30">
 
             <ScrollView Orientation="Horizontal">
 
