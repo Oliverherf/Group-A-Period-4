@@ -9,7 +9,8 @@ namespace Draft4
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
+        
+        public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         public MainPage()
         {
             InitializeComponent();
@@ -19,7 +20,14 @@ namespace Draft4
             task.Add(new TaskInfo { Name = "Task3" });
             task.Add(new TaskInfo { Name = "Task4" });
             myListView.ItemsSource = task;
+           // Sherlock.TextChanged += Sherlock_TextChanged;
                  
+        }
+
+        private void Sherlock_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("test");
+            myListView.ItemsSource = task.Where(s => s.Name.StartsWith(e.NewTextValue));
         }
 
         public class TaskInfo
@@ -41,7 +49,7 @@ namespace Draft4
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            myListView.ItemsSource = task.Where(s => s.Name.StartsWith(e.NewTextValue));
+            
         }
 
         //private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

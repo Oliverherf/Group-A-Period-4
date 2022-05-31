@@ -28,7 +28,7 @@
         <Label TextColor="#FE931F"  Padding="25,0,0,0" Grid.Column="0" Grid.Row="0" FontSize="50" Text="&lt;"/>
                 <Label Grid.Row="1" Grid.Column="0"  Margin="15,80,50,4" Text="Label 1" BackgroundColor="White"/>
 
-        <SearchBar x:Name="SearchBar"
+        <SearchBar x:Name="Sherlock"
                            Margin="0,80,10,0"
                            Grid.Row="0"
                            Grid.Column="0"
@@ -36,11 +36,10 @@
                            CancelButtonColor="#FE931F"
                            PlaceholderColor="#FE931F"
                            TextColor="#FE931F"
-                           TextChanged="SearchBar_TextChanged"
-                           TextTransform="Lowercase"
                            HorizontalTextAlignment="Center"
                            FontSize="Medium"
-                           FontAttributes="Italic"                       
+                           FontAttributes="Italic"    
+                           TextChanged="Sherlock_TextChanged"
                             />
 
 
@@ -61,7 +60,7 @@
                                 ItemTapped="myListView_ItemTapped"
                                 Grid.Row="2" Grid.Column="0" SeparatorColor="Red" 
                                 HasUnevenRows="True"
-                                IsPullToRefreshEnabled="True">
+                                IsPullToRefreshEnabled="True"  >
           <ListView.ItemTemplate  Grid.Row="3" Grid.Column="0"  Margin="0,0,50,0" HeightRequest="400">
              <DataTemplate>
                     <ViewCell>
