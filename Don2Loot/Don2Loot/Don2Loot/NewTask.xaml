@@ -17,14 +17,14 @@
     -->
     <ContentPage.Content>
         <StackLayout Spacing="10" Padding="25" BackgroundColor="#2D2F30">
-            <Button Text="&lt;" TextColor="Orange"  Padding="5" Grid.Column="0" Grid.Row="0" FontSize="50" Clicked="Next">
+            <Button Text="&lt;" TextColor="Orange"  Padding="5" Grid.Column="0" Grid.Row="0" FontSize="50"><!--Clicked="Next"-->
             </Button>
             <Label Text="Task Title" FontSize="Medium" TextColor="#FFFFFF"  />
             <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" TextColor="Orange" />
             <Label Text="Description" FontSize="Medium" TextColor="#FFFFFF" />
             <Editor x:Name="editor" Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Orange"/>
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel"  HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"  Clicked="OnSaveButtonClicked"></Button>
+                <Button Text="Cancel"  HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button> <!--Clicked="OnSaveButtonClicked"-->
                 <Button Text="Save"  HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
             </StackLayout>
         </StackLayout>
