@@ -59,7 +59,7 @@ namespace Don2Loot
                             foreach (var image in images2[i])
                             {
                                 //checks whether image is unlocked and able to be viewed
-                                if (image.isUnlocked)
+                                if (!image.isUnlocked)
                                 {
                                     images[j].Add(new image() { Image = image.RewardImage });
                                 }
