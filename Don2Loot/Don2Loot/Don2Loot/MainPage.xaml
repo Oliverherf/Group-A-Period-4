@@ -4,7 +4,7 @@
              x:Class="Don2Loot.MainPage"
              NavigationPage.HasNavigationBar="false">
 
-    <Grid BackgroundColor="#707070" VerticalOptions="FillAndExpand">
+    <Grid BackgroundColor="#2D2F30" VerticalOptions="FillAndExpand">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="6"/>
@@ -42,8 +42,8 @@
                    Aspect="AspectFill">
             </Image>
         </Frame>
-        
-        <Frame Grid.Row="0"
+
+        <!--<Frame Grid.Row="0"
                Grid.Column="3"
                CornerRadius="100"
                Margin="50,5,5,0"
@@ -53,14 +53,11 @@
                HorizontalOptions="Center"
                HeightRequest="50"
                WidthRequest="50"
-               >
-            <Image Source="coin.png"
-                   VerticalOptions="FillAndExpand"
-                   HorizontalOptions="FillAndExpand"
-                   Aspect="AspectFill">
-            </Image>
-
-        </Frame>
+               >-->
+        <Image Source="coin"
+                   Grid.Row="0"
+                   Grid.Column="3"
+                   HeightRequest="30"/>
 
         <SearchBar Grid.Row="0" 
                    Grid.Column="4"
@@ -70,7 +67,7 @@
                    Placeholder="Search Bar"
                    HorizontalTextAlignment="Center"
                    CancelButtonColor="Red"
-                   TextColor="Black"
+                   TextColor="White"
                    TextTransform="Lowercase"
                    FontAttributes="Bold" 
                    FlowDirection="LeftToRight">
@@ -103,9 +100,9 @@
               Grid.RowSpan="2"
               Grid.ColumnSpan="6"
               Margin="0,15,0,70"
-              BackgroundColor="Gray">
+              BackgroundColor="#2D2F30">
 
-            <ScrollView Orientation="Horizontal">
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
 
                 <Grid>
 
@@ -150,16 +147,10 @@
                Grid.ColumnSpan="4"
                Grid.RowSpan="3"
                CornerRadius="60"
-               Margin="0,70,0,0"/>
-        <Grid Grid.Row="3"
-              Grid.Column="1"
-              Grid.ColumnSpan="4"
-              Grid.RowSpan="3"
-              Margin="0,70,0,0">
+               Margin="0,70,0,0">
 
-            <ScrollView>
+            <ScrollView VerticalScrollBarVisibility="Never">
                 <Grid>
-
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="*"/>
@@ -170,82 +161,81 @@
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="300" />
+                        <ColumnDefinition Width="250" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <Frame BackgroundColor="Gray"
-                             Grid.Row="0" 
-                             Grid.Column="1"
-                             CornerRadius="30"
-                             Margin="65,12,65,20">
+                                 Grid.Row="0" 
+                                 Grid.Column="1"
+                                 CornerRadius="30"
+                                 Margin="65,12,65,20">
 
                     </Frame>
                     <Frame   Grid.Row="1" 
-                             Grid.Column="1"
-                             CornerRadius="15"
-                             BorderColor="Orange"
-                             Margin="1"
-                             >
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1"
+                                 >
                         <Button Text="YOUR COLLECTION"
-                               TextColor="Orange"
-                               HorizontalOptions="Center"
-                               FontSize="Medium"
-                               FontAttributes="Bold"
-                               BackgroundColor="White"
-                               Clicked="collectionPageButton"/>
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="collectionPageButton"/>
                     </Frame>
 
                     <Frame   Grid.Row="2" 
-                             Grid.Column="1"
-                             CornerRadius="15"
-                             BorderColor="Orange"
-                             Margin="1">
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1">
 
                         <Button Text="NEW TASKS"
-                               TextColor="Orange"
-                               HorizontalOptions="Center"
-                               FontSize="Medium"
-                               FontAttributes="Bold"
-                               BackgroundColor="White"
-                               Clicked="newTaskButton"/>
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="newTaskButton"/>
                     </Frame>
 
                     <Frame   Grid.Row="3" 
-                             Grid.Column="1"
-                             CornerRadius="15"
-                             BorderColor="Orange"
-                             Margin="1">
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1">
 
-                        <Label Text="SETTINGS"
-                               TextColor="Orange"
-                               HorizontalOptions="Center"
-                               FontSize="Medium"
-                               FontAttributes="Bold"/>
+                        <Button Text="Task Page"
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="TaskPageButton"/>
 
                     </Frame>
 
                     <Frame Grid.Row="4" 
-                           Grid.Column="1"
-                           CornerRadius="15"
-                           BorderColor="Orange"
-                           Margin="1"
-                           >
+                               Grid.Column="1"
+                               CornerRadius="15"
+                               BorderColor="Orange"
+                               Margin="1"
+                               >
 
                         <Label Text="STATS"
-                               TextColor="Orange"
-                               HorizontalOptions="Center"
-                               FontSize="Medium"
-                               FontAttributes="Bold"/>
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"/>
 
                     </Frame>
 
                 </Grid>
-
             </ScrollView>
-
-        </Grid>
-
+        </Frame>
     </Grid>
 
 </ContentPage>

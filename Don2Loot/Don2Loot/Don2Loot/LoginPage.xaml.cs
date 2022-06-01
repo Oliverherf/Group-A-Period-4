@@ -1,35 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Don2Loot
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {
             InitializeComponent();
         }
+
         private void Button_Clicked(object sender, EventArgs e)
         {
-
             if (txtUserName.Text.Length >= 20)
             {
                 //DisplayAlert("Alert", txtUserName.MaxLength.ToString(), "ok");
                 DisplayAlert("Alert!", "Username is too long", "Use a Grammar Check!");
+                return;
             }
-            /*else
+
+            if (!IsAllLetters(txtUserName.Text))
             {
-                DisplayAlert("Alert", txtUserName.Text.Length.ToString(), "ok");
-            }*/
+                DisplayAlert("Alert!", "Username should contain only letters", "Use a Grammar Check!");
+                return;
+            }
+
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                DisplayAlert("Alert!", "Email is not valid", "Use a Grammar Check!");
+                return;
+            }
+            //System.Diagnostics.Debug.WriteLine("Success");
+            Navigation.PushAsync(new MainPage());
         }
-        static bool IsValidEmail(string email)
+        public bool IsAllLetters(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsLetter(c))
+                    return false;
+            }
+            return true;
+        }
+        public bool IsValidEmail(string email)
         {
             try
             {

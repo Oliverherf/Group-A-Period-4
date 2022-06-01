@@ -7,28 +7,21 @@
              Title="New Item"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true">
-    <!--<StackLayout BackgroundColor="#2D2F30">
-        <Label TextColor="Orange"  Padding="25,0,0,0" Grid.Column="0" Grid.Row="0" FontSize="50">
-            &lt;
-        </Label>
-        <Editor BackgroundColor="#2D2F30" Margin="20" TextColor="Orange" HeightRequest="500" />
-    </StackLayout>
-</ContentPage>   
-    -->
     <ContentPage.Content>
         <StackLayout Spacing="10" Padding="25" BackgroundColor="#2D2F30">
-            <Button Text="&lt;" TextColor="#FE931F" Padding="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start"
-                FontSize="50" Clicked="backButton" BackgroundColor="#2D2F30"/>
+            <Button Text="&lt;" TextColor="Orange"  Padding="5" Grid.Column="0" Grid.Row="0" FontSize="50" Clicked="backButton">
+            </Button>
             <Label Text="Task Title" FontSize="Medium" TextColor="#FFFFFF"  />
-            <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" TextColor="Orange" />
+            <Entry x:Name="txtFileName" Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" TextColor="Orange" />
             <Label Text="Description" FontSize="Medium" TextColor="#FFFFFF" />
-            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Orange"  />
+            <Editor x:Name="txtFileText" Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" TextColor="Orange"/>
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
+                <Button Text="Cancel"  HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
+                <Button Text="Save"  HorizontalOptions="FillAndExpand" CornerRadius="500" BackgroundColor="Orange"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage> 
+ 
     
    
