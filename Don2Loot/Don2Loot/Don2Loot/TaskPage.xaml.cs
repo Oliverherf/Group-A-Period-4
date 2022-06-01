@@ -3,15 +3,16 @@ using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
+using Plugin.LocalNotification;
 
-namespace Draft4
+namespace Don2Loot
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class TaskPage : ContentPage
     {
 
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
-        public MainPage()
+        public TaskPage()
         {
             InitializeComponent();
             BindingContext = this;
@@ -37,8 +38,23 @@ namespace Draft4
 
         private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var task = e.SelectedItem as TaskInfo;
-            DisplayAlert("Selected", $"{task.Name}\n", "OK");
+            var notification = new NotificationRequest
+            {
+                BadgeNumber = 1,
+                Description = "From Zack to the loved one ",
+                Title = "I love you mom",
+                ReturningData = "Dummy data",
+                NotificationId = 1337,
+                //Android = new Plugin.LocalNotification.AndroidOption.AndroidOptions
+                //{
+
+                //}
+            };
+
+            NotificationCenter.Current.Show(notification);
+
+            //var task = e.SelectedItem as TaskInfo;
+            //DisplayAlert("Selected", $"{task.Name}\n", "OK");
         }
 
         private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -71,7 +87,7 @@ namespace Draft4
 
         private void backButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MainPage());
+            Navigation.PopAsync();
         }
     }
 }

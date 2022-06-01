@@ -24,5 +24,10 @@ namespace Don2Loot
         {
             Navigation.PushAsync(new NewTask());
         }
+
+        private void TaskPageButton(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TaskPage());
+        }
     }
 }
