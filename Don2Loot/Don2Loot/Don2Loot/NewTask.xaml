@@ -9,7 +9,7 @@
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout Spacing="10" Padding="25" BackgroundColor="#2D2F30">
-            <Button Text="&lt;" TextColor="Orange"  Padding="5" Grid.Column="0" Grid.Row="0" FontSize="50" Clicked="Next">
+            <Button Text="&lt;" TextColor="Orange"  Padding="5" Grid.Column="0" Grid.Row="0" FontSize="50" Clicked="backButton">
             </Button>
             <Label Text="Task Title" FontSize="Medium" TextColor="#FFFFFF"  />
             <Entry x:Name="txtFileName" Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" TextColor="Orange" />
