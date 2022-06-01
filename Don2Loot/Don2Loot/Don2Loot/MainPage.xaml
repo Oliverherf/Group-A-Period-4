@@ -42,8 +42,8 @@
                    Aspect="AspectFill">
             </Image>
         </Frame>
-        
-        <Frame Grid.Row="0"
+
+        <!--<Frame Grid.Row="0"
                Grid.Column="3"
                CornerRadius="100"
                Margin="50,5,5,0"
@@ -53,14 +53,16 @@
                HorizontalOptions="Center"
                HeightRequest="50"
                WidthRequest="50"
-               >
-            <Image Source="coin"
+               >-->
+        <Image Source="coin"
+                   Grid.Row="0"
+                   Grid.Column="3"
+                   HeightRequest="50"
+                   WidthRequest="50"    
                    VerticalOptions="FillAndExpand"
                    HorizontalOptions="FillAndExpand"
                    Aspect="AspectFill"
                    BackgroundColor="#2D2F30"/>
-
-        </Frame>
 
         <SearchBar Grid.Row="0" 
                    Grid.Column="4"
