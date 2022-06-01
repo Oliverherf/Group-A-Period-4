@@ -35,14 +35,14 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label FontSize="Large" FontAttributes="Bold" TextColor="White"  Text="{Binding Path=Key.Title}"/>
+                                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="{Binding Path=Key.Title}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </flv:FlowListView.GroupHeaderTemplate>
                 <flv:FlowListView.FlowColumnTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding Path=Image}" Aspect="AspectFit" HeightRequest="250"/>
+                        <Image Source="{Binding Image}" Aspect="AspectFit" HeightRequest="250"/>
                     </DataTemplate>
                 </flv:FlowListView.FlowColumnTemplate>
             </flv:FlowListView>

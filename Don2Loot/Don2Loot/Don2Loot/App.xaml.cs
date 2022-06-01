@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -29,10 +30,12 @@ namespace Don2Loot
 
         protected override void OnStart()
         {
+            base.OnStart();
         }
 
         protected override void OnSleep()
         {
+
         }
 
         protected override void OnResume()

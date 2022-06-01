@@ -124,7 +124,6 @@ namespace Don2Loot
         }
         public Task<int> updateRewardRarity(int PK, string newRewardRarity)
         {
-            newRewardRarity = newRewardRarity.Trim(specialCharacters);
             return _database.ExecuteAsync("UPDATE Reward SET rewardrarity = ? WHERE rewardid = ?", PK, newRewardRarity);
         }
         public Task<int> updateRewardName(int PK, string newRewardName)
@@ -145,15 +144,15 @@ namespace Don2Loot
         }
         public Task<int> deleteTask(Task task)
         {
-            return _database.ExecuteAsync("DELETE FROM User WHERE useremail = ?", task.Id);
+            return _database.ExecuteAsync("DELETE FROM Task WHERE id = ?", task.Id);
         }
         public Task<int> deleteReward(Reward reward)
         {
-            return _database.ExecuteAsync("DELETE FROM User WHERE useremail = ?", reward.RewardId);
+            return _database.ExecuteAsync("DELETE FROM Reward WHERE rewardid = ?", reward.RewardId);
         }
         public Task<int> deleteChest(Chest chest)
         {
-            return _database.ExecuteAsync("DELETE FROM User WHERE useremail = ?", chest.ChestName);
+            return _database.ExecuteAsync("DELETE FROM Chest WHERE chestName = ?", chest.ChestName);
         }
     }
 
@@ -238,7 +237,7 @@ namespace Don2Loot
 
         [Column("rewardrarity")]
         [NotNull]
-        public string RewardRarity { get; set; }
+        public int RewardRarity { get; set; }
 
         [Column("chestname")]
         [ForeignKey(typeof(Chest))]
