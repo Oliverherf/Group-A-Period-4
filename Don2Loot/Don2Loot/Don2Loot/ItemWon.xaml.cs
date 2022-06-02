@@ -21,9 +21,10 @@ namespace Don2Loot
         {
             Navigation.PopAsync();
         }
-        private void collectionPageButton(object sender, EventArgs e)
+        async void collectionPageButton(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CollectionPage());
+            Navigation.InsertPageBefore(new CollectionPage(), this);
+            await Navigation.PopAsync();
         }
     }
 }

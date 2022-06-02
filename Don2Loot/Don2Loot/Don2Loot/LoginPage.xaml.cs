@@ -16,12 +16,18 @@ namespace Don2Loot
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (txtUserName.Text.Length >= 20)
+            if(string.IsNullOrEmpty(txtUserName.Text))
+            {
+                DisplayAlert("Alert!", "Username must contain 2-20 characters", "Use a Grammar Check!");
+                return;
+            }
+            
+            if (txtUserName.Text.Length > 20 && txtUserName.Text.Length < 2)
             {
                 //DisplayAlert("Alert", txtUserName.MaxLength.ToString(), "ok");
-                DisplayAlert("Alert!", "Username is too long", "Use a Grammar Check!");
+                DisplayAlert("Alert!", "Username must contain 2-20 characters", "Use a Grammar Check!");
                 return;
             }
 
@@ -37,7 +43,15 @@ namespace Don2Loot
                 return;
             }
             //System.Diagnostics.Debug.WriteLine("Success");
-            Navigation.PushAsync(new MainPage());
+            var contact = new Contact
+            {
+                Email = txtEmail.Text,
+                Name = txtUserName.Text.ToUpper()
+            };
+            var mainPage = new MainPage();
+            mainPage.BindingContext = contact;
+            Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
+            await Navigation.PopAsync();                    //popping current page off the navigation stack (Mainpage is now the main page/root page
         }
         public bool IsAllLetters(string s)
         {
@@ -60,5 +74,11 @@ namespace Don2Loot
                 return false;
             }
         }
+    }
+
+    internal class Contact
+    {
+        public string Email { get; set; }
+        public string Name { get; set; }
     }
 }

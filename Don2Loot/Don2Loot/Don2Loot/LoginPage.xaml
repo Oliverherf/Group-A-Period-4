@@ -8,10 +8,10 @@
 
         <Label Text="REGISTRATION" HorizontalTextAlignment="Center" TextColor="White" FontSize="30" Margin="50"/>
         <Frame BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F" WidthRequest="200" HeightRequest="50">
-            <Entry x:Name="txtUserName" Placeholder ="Name" TextColor="White" PlaceholderColor="WhiteSmoke" HorizontalOptions="Center" WidthRequest="200" ></Entry>
+            <Entry x:Name="txtUserName" Placeholder ="Name" TextColor="White" PlaceholderColor="WhiteSmoke" HorizontalOptions="Center" WidthRequest="200" MaxLength="20"/>
         </Frame>
         <Frame  BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="50">
-            <Entry x:Name="txtEmail" Placeholder ="Email" TextColor="White" PlaceholderColor="WhiteSmoke"  HorizontalOptions="Center" WidthRequest="200"></Entry>
+            <Entry x:Name="txtEmail" Placeholder ="Email" TextColor="White" PlaceholderColor="WhiteSmoke"  HorizontalOptions="Center" WidthRequest="200"/>
         </Frame>
         <Button
                 Text="Submit"
