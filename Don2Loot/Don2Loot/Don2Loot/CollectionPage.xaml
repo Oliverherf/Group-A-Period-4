@@ -4,7 +4,7 @@
              x:Class="Don2Loot.CollectionPage"
              NavigationPage.HasNavigationBar="false">
 
-    <Grid BackgroundColor="#707070" >
+    <Grid BackgroundColor="#2D2F30" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -21,7 +21,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Button Text="&lt;" TextColor="#FE931F" Padding="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start"
-                FontSize="50" Clicked="backButton" BackgroundColor="#707070"/>
+                FontSize="50" Clicked="backButton" BackgroundColor="#2D2F30"/>
 
         <Label TextColor="White" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" FontSize="40">
             Your Rewards

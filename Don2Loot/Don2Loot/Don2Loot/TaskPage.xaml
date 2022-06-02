@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              x:Class="Don2Loot.TaskPage"
              NavigationPage.HasNavigationBar="false">
-    <Grid BackgroundColor="#707070" VerticalOptions="FillAndExpand">
+    <Grid BackgroundColor="#2D2F30" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
@@ -29,7 +29,7 @@
         <Button TextColor="#FE931F" Clicked="backButton_Clicked" Padding="0" Grid.Column="0" 
                 Grid.Row="0" FontSize="50" Text="&lt;"
                 Margin="0,0,330,75"
-                BackgroundColor="#707070"/>
+                BackgroundColor="#2D2F30"/>
         
         <Label Grid.Row="1" Grid.Column="0"  Margin="15,80,50,4" Text="Label 1" BackgroundColor="White"/>
 
