@@ -6,56 +6,56 @@
              BackgroundColor="#2D2F30">
     <ContentPage.Content>
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-                <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
-                <Label Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
-            <Image Grid.Row="0" Grid.Column="2" BackgroundColor="#2D2F30" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="40"/>
-        </Grid>
-        <Grid Grid.Column="0" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Frame BackgroundColor="#2D2F30" Padding="24"  Margin="10" Grid.Row="1" Grid.Column="0" HasShadow="False">
-                <Label Text="Task completed" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="36" VerticalTextAlignment="Center"/>
-            </Frame>
-            <Grid Grid.Column="0" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#2D2F30" HasShadow="False">
-                    <Label Text="+10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
+                <Label Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                <Image Grid.Row="0" Grid.Column="2" BackgroundColor="#2D2F30" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="40"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="#2D2F30" Padding="24"  Margin="10" Grid.Row="1" Grid.Column="0" HasShadow="False">
+                    <Label Text="Task completed" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="36" VerticalTextAlignment="Center"/>
                 </Frame>
-                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" HasShadow="False">
-                    <Image Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="100"/>
-                </Frame>
+                <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#2D2F30" HasShadow="False">
+                        <Label Text="+10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" HasShadow="False">
+                        <Image Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="100"/>
+                    </Frame>
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
     </ContentPage.Content>
 </ContentPage>

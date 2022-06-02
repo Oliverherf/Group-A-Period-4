@@ -15,19 +15,24 @@ namespace Don2Loot
             InitializeComponent();
         }
 
-        private void collectionPageButton(object sender, EventArgs e)
+        async void collectionPageButton(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CollectionPage());
+            await Navigation.PushAsync(new CollectionPage());
         }
 
-        private void newTaskButton(object sender, EventArgs e)
+        async void newTaskButton(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new NewTask());
+            await Navigation.PushAsync(new NewTask());
         }
 
-        private void TaskPageButton(object sender, EventArgs e)
+        async void TaskPageButton(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new TaskPage());
+            await Navigation.PushAsync(new TaskPage());
+        }
+
+        async void TestPageButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TaskCompleted());
         }
     }
 }

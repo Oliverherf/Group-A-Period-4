@@ -237,11 +237,13 @@
                                Margin="1"
                                >
 
-                        <Label Text="STATS"
+                        <Button Text="Test Page"
                                    TextColor="Orange"
                                    HorizontalOptions="Center"
                                    FontSize="Medium"
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="TestPageButton"/>
 
                     </Frame>
 

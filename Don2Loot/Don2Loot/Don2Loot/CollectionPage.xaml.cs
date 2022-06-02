@@ -75,9 +75,9 @@ namespace Don2Loot
         }
 
         //returns to mainpage
-        private void backButton(object sender, EventArgs e)
+        async void backButton(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            await Navigation.PopAsync();
         }
     }
 
