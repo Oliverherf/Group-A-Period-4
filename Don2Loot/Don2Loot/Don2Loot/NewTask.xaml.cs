@@ -36,9 +36,9 @@ namespace Don2Loot
             DisplayAlert("Congrats!", "Note is saved!", "Go Back");
             return;
         }
-        private void backButton(object sender, EventArgs e)
+        async void backButton(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MainPage());
+            await Navigation.PopAsync();
         }
     }
 }
