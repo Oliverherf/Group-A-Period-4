@@ -9,6 +9,9 @@ namespace Don2Loot
 {
     public class Database
     {
+        //to run database initialization once
+        private bool isMakingDB = false;
+
         char[] specialCharacters = {',', '<', '.', '>', ';', ':', '\'', '"', '{', '{', ']', '}', '\\',
             '|', '`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+'};
         char[] specialCharactersForEmail = {',', '<', '>', ';', ':', '\'', '"', '{', '{', ']', '}', '\\',
@@ -16,92 +19,43 @@ namespace Don2Loot
         private readonly SQLiteAsyncConnection _database;
         public Database(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<User>();
-            _database.CreateTableAsync<Task>();
-            _database.CreateTableAsync<Chest>();
-            _database.CreateTableAsync<Reward>();
+            //makes sure that it doesnt run infinitely when creating default database entries
+            if(isMakingDB == false)
+            {
 
-            //initializing Rewards for first time launch in database
-            //Reward reward = new Reward();
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "MUI_Goku";
-            //reward.RewardName = "Mastered Ultra Instinct Goku";
-            //reward.RewardRarity = 1;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Naruto";
-            //reward.RewardName = "Sage of Six Paths Naruto";
-            //reward.RewardRarity = 1;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Saitama";
-            //reward.RewardName = "Saitama";
-            //reward.RewardRarity = 2;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Luffy";
-            //reward.RewardName = "Luffy";
-            //reward.RewardRarity = 2;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Ichigo";
-            //reward.RewardName = "Ichigo";
-            //reward.RewardRarity = 2;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Hisoka";
-            //reward.RewardName = "Hisoka";
-            //reward.RewardRarity = 3;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Yuujiro";
-            //reward.RewardName = "Yuujiro";
-            //reward.RewardRarity = 3;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Attack_Titan";
-            //reward.RewardName = "Attack Titan";
-            //reward.RewardRarity = 3;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Dio";
-            //reward.RewardName = "Dio";
-            //reward.RewardRarity = 3;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Meliodas";
-            //reward.RewardName = "Meliodas";
-            //reward.RewardRarity = 4;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Tanjiro";
-            //reward.RewardName = "Tanjiro";
-            //reward.RewardRarity = 4;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Gojo";
-            //reward.RewardName = "Gojo";
-            //reward.RewardRarity = 4;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
-            //reward.isUnlocked = false;
-            //reward.RewardImage = "Kaneki";
-            //reward.RewardName = "Kaneki";
-            //reward.RewardRarity = 4;
-            //reward.ChestName = "anime";
-            //App.Database.saveReward(reward);
+                _database = new SQLiteAsyncConnection(dbPath);
+                isMakingDB = true;
+                _database.CreateTableAsync<User>();
+                _database.CreateTableAsync<Task>();
+                _database.CreateTableAsync<Chest>();
+                _database.CreateTableAsync<Reward>();
+
+                generateDBRewards(false, "MUI_Goku", "Mastered Ultra Instinct Goku", 1, "anime");
+
+                generateDBRewards(false, "Naruto", "Sage of Six Paths Naruto", 1, "anime");
+
+                generateDBRewards(false, "Saitama", "Saitama", 2, "anime");
+
+                generateDBRewards(false, "Luffy", "Luffy", 2, "anime");
+
+                generateDBRewards(false, "Ichigo", "Ichigo", 2, "anime");
+
+                generateDBRewards(false, "Hisoka", "Hisoka", 3, "anime");
+
+                generateDBRewards(false, "Yuujiro", "Yuujiro", 3, "anime");
+
+                generateDBRewards(false, "Attack_Titan", "Attack Titan", 3, "anime");
+
+                generateDBRewards(false, "Dio", "Dio", 3, "anime");
+
+                generateDBRewards(false, "Meliodas", "Meliodas", 4, "anime");
+
+                generateDBRewards(false, "Tanjiro", "Tanjiro", 4, "anime");
+
+                generateDBRewards(false, "Gojo", "Gojo", 4, "anime");
+
+                generateDBRewards(false, "Kaneki", "Kaneki", 4, "anime");
+            }
         }
 
         //Gets a list of all database entries from all tables
@@ -235,6 +189,17 @@ namespace Don2Loot
         {
             return _database.ExecuteAsync("DELETE FROM Chest WHERE chestName = ?", chest.ChestName);
         }
+
+        public void generateDBRewards(bool isUnlocked, string rewardImage, string rewardName, int rewardRarity
+            , string chestName) {
+            Reward reward = new Reward();
+            reward.isUnlocked = isUnlocked;
+            reward.RewardImage = rewardImage;
+            reward.RewardName = rewardName;
+            reward.RewardRarity = rewardRarity;
+            reward.ChestName = chestName;
+            saveReward(reward);
+        }
     }
 
     //Creation of the database
@@ -277,7 +242,6 @@ namespace Don2Loot
         public string TaskDescription { get; set; }
 
         [Column("taskdeadline")]
-        [NotNull]
         public DateTime TaskDeadline { get; set; }
 
         [Column("isfinished")]
