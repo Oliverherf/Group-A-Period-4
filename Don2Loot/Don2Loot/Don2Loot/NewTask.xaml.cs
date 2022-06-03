@@ -15,9 +15,6 @@ namespace Don2Loot
         public NewTask()
         {
             InitializeComponent();
-            this.BindingContext = this;
-            NavigationPage.SetHasNavigationBar(this, true);
-            this.Title = "XamFile Writer";
         }
         private void Cancel(object sender, EventArgs e)
         {
