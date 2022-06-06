@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Draft4
+namespace NotificationPage
 {
     public partial class App : Application
     {
@@ -13,5 +13,16 @@ namespace Draft4
             MainPage = new MainPage();
         }
 
+        protected override void OnStart()
+        {
+        }
+
+        protected override void OnSleep()
+        {
+        }
+
+        protected override void OnResume()
+        {
+        }
     }
 }

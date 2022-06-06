@@ -169,6 +169,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
@@ -244,6 +245,22 @@
                                    FontAttributes="Bold"
                                    BackgroundColor="White"
                                    Clicked="TestPageButton"/>
+
+                    </Frame>
+
+                    <Frame   Grid.Row="5" 
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1">
+
+                        <Button Text="Vote Page"
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="VoteButton"/>
 
                     </Frame>
 

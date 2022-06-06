@@ -34,5 +34,9 @@ namespace Don2Loot
         {
             await Navigation.PushAsync(new TaskCompleted());
         }
+        async void VoteButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Vote());
+        }
     }
 }
