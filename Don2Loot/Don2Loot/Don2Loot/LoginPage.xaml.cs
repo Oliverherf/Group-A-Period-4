@@ -27,7 +27,7 @@ namespace Don2Loot
                 {
                     DisplayAlert("Alert!", "All fields shoud be filled in!", "Ok");
                     return;
-                }
+                }  
 
             if (txtUserName.Text.Length > 20 && txtUserName.Text.Length < 2)
                 {

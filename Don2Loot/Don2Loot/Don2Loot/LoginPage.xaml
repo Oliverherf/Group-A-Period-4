@@ -2,16 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Don2Loot.LoginPage"
+             xmlns:local="clr-namespace:SignaturePad"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
              NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="#2D2F30">
 
         <Label Text="REGISTRATION" HorizontalTextAlignment="Center" TextColor="White" FontSize="30" Margin="50"/>
-        <Frame BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F" WidthRequest="200" HeightRequest="50">
+        <Frame BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F" WidthRequest="200" HeightRequest="90">
             <Entry x:Name="txtUserName" Placeholder ="Name" TextColor="White" PlaceholderColor="WhiteSmoke" HorizontalOptions="Center" WidthRequest="200" MaxLength="20"/>
         </Frame>
-        <Frame  BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="50">
+        <Frame  BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="90">
             <Entry x:Name="txtEmail" Placeholder ="Email" TextColor="White" PlaceholderColor="WhiteSmoke"  HorizontalOptions="Center" WidthRequest="200"/>
+        </Frame>
+        <Frame  BackgroundColor="#707070" CornerRadius="30" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="200">
+            <forms:SignaturePadView StrokeColor="#FE931F"
+                                 x:Name="Signature"
+                            BackgroundColor="#707070"
+                            StrokeWidth="3"
+                            WidthRequest="100"
+                            HeightRequest="100"/>
         </Frame>
         <Button
                 Text="Submit"
