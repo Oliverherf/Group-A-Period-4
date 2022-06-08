@@ -26,5 +26,12 @@ namespace Don2Loot
             Navigation.InsertPageBefore(new CollectionPage(), this);
             await Navigation.PopAsync();
         }
+
+        private void itemDisplay()
+        {
+            //Temporary hard-coding a variable. Future: get chest name from the store page
+            String chestName = "anime";
+
+        }
     }
 }

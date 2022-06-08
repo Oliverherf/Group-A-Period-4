@@ -35,7 +35,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="YOU GOT A RARE ITEM!" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="36" VerticalTextAlignment="Center" BackgroundColor="#2D2F30"/>
+                <Label Text="YOU GOT AN ITEM!" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="36" VerticalTextAlignment="Center" BackgroundColor="#2D2F30"/>
                 <Frame Grid.Column="0" Grid.Row="1" BackgroundColor="#FE931F" CornerRadius="30" Margin="10">
                     <Image Source="coin"/> <!-- This is just a placeholder image -->
                 </Frame>
