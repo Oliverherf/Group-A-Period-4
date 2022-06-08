@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SignaturePad.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -47,8 +49,15 @@ namespace Don2Loot
                     DisplayAlert("Alert!", "Email is not valid", "Ok");
                     return;
                 }
-                //System.Diagnostics.Debug.WriteLine("Success");
-                var contact = new Contact
+
+                 Stream image = await  Signature.GetImageStreamAsync(SignatureImageFormat.Jpeg);
+                 //using (FileStream file = new FileStream(file_path, FileMode.Create, System.IO.FileAccess.Write))
+                 //{
+                    //image.CopyTo(file);
+                 //}
+
+            //System.Diagnostics.Debug.WriteLine("Success");
+            var contact = new Contact
                 {
                     Email = txtEmail.Text,
                     Name = txtUserName.Text.ToUpper()
