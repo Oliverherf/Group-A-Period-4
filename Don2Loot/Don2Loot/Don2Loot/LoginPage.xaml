@@ -17,18 +17,18 @@
         </Frame>
         <Frame  BackgroundColor="#707070" CornerRadius="30" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="200">
             <forms:SignaturePadView StrokeColor="#FE931F"
-                                 x:Name="Signature"
-                            BackgroundColor="#707070"
-                            StrokeWidth="3"
-                            WidthRequest="100"
-                            HeightRequest="100"/>
+                                    x:Name="Signature"
+                                    BackgroundColor="#707070"
+                                    StrokeWidth="3"
+                                    WidthRequest="100"
+                                    HeightRequest="100"/>
         </Frame>
         <Button
                 Text="Submit"
                 TextColor="White"
                 BackgroundColor="#FE931F"   
                 BorderColor="#FE931F"
-                BorderWidth="10"
+                BorderWidth="10"    
                 CornerRadius="500"
                 HorizontalOptions="End"
                 Margin ="50"

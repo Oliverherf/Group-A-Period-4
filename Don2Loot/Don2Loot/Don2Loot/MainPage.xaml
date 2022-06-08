@@ -264,6 +264,22 @@
 
                     </Frame>
 
+                    <Frame   Grid.Row="6" 
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1">
+
+                        <Button Text="Item Won T"
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="ItemWonButton"/>
+
+                    </Frame>
+
                 </Grid>
             </ScrollView>
         </Frame>
