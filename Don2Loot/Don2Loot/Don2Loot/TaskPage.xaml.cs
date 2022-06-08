@@ -85,7 +85,7 @@ namespace Don2Loot
             myListView.EndRefresh();
         }
 
-        private void backButton_Clicked(object sender, EventArgs e)
+        private void backButton(object sender, EventArgs e)
         {
             Navigation.PopAsync();
         }

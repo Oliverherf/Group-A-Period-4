@@ -3,93 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              x:Class="Don2Loot.TaskPage"
              NavigationPage.HasNavigationBar="false">
-    <Grid BackgroundColor="#2D2F30" VerticalOptions="FillAndExpand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="4*"/>    
-                <RowDefinition Height="100"/>
-            </Grid.RowDefinitions>
-            
+    <Grid Background="#2D2F30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-
-        <Frame CornerRadius="30" BackgroundColor="Orange" Margin="10,80,50,0" HeightRequest="4000" Padding="0,0,0,0"
-               Grid.Row="0" Grid.Column="0">
-            <Frame>
-
-            </Frame>
-        </Frame>
-
-
-        <Button TextColor="#FE931F" Clicked="backButton_Clicked" Padding="0" Grid.Column="0" 
-                Grid.Row="0" FontSize="50" Text="&lt;"
-                Margin="0,0,330,75"
-                BackgroundColor="#2D2F30"/>
-        
-        <Label Grid.Row="1" Grid.Column="0"  Margin="15,80,50,4" Text="Label 1" BackgroundColor="White"/>
-
-        <SearchBar x:Name="Sherlock"
-                           Margin="0,80,10,0"
-                           Grid.Row="0"
-                           Grid.Column="0"
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
+            <Label Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+            <Image Grid.Row="0" Grid.Column="2" BackgroundColor="#2D2F30" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </Grid>
+        <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="30" Margin="5">
+            <SearchBar x:Name="Sherlock"
                            Placeholder="Search Task"
                            CancelButtonColor="#FE931F"
                            PlaceholderColor="#FE931F"
                            TextColor="#FE931F"
                            HorizontalTextAlignment="Center"
                            FontSize="Medium"
-                           FontAttributes="Italic"    
+                           FontAttributes="Italic"
                            TextChanged="Sherlock_TextChanged"
                             />
-
-
-                    <Label Grid.Row="1" Grid.Column="0" Text=""/>
-
-
-                    <Frame CornerRadius="30" Margin="10,30,70,1" Padding="10" BackgroundColor="White" 
-                                Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3"/>
-        
-            
-                      <Label Grid.Row="2" Grid.Column="0" Text="TASK LISTING:" TextColor="#FE931F" 
-                                  FontSize="Large" Margin ="30,40,80,30"  BackgroundColor="White" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
-
-
-
-
-        <ListView  x:Name="myListView" HeightRequest="300" Margin="0,120,30,0" ItemSelected ="myListView_ItemSelected"
+        </Frame>
+        <Frame Grid.Row="3" Grid.Column="0" CornerRadius="30" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Text="TASK LISTING:" TextColor="#FE931F" FontSize="Large" FontAttributes="Bold" Grid.Row="0"/>
+                <ListView  x:Name="myListView" ItemSelected ="myListView_ItemSelected"
+                                Grid.Row="1" Grid.Column="0" 
                                 ItemTapped="myListView_ItemTapped"
-                                Grid.Row="2" Grid.Column="0" SeparatorColor="Red" 
                                 HasUnevenRows="True"
                                 IsPullToRefreshEnabled="True"  >
-          <ListView.ItemTemplate  Grid.Row="3" Grid.Column="0"  Margin="0,0,50,0" HeightRequest="400">
-             <DataTemplate>
-                    <ViewCell>
-                        <Frame  BorderColor="Orange" BackgroundColor="White" Margin="20,0,50,20" Padding="0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="100"/>
-                                </Grid.RowDefinitions>
-
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="400"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Label Text="{Binding Name}" TextColor="#FE931F" Padding="20,10,0,10"  MinimumWidthRequest="100" HeightRequest="430"
-                                             FontSize="Large" Margin ="10,30,110,20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" BackgroundColor="White">
-
-                                </Label>
-
-                            </Grid>
-                        </Frame>
-                    </ViewCell>
-               </DataTemplate>
-          </ListView.ItemTemplate>
-        </ListView>
-                    <Image Source="Add" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center" Margin="0,0,40,0"></Image>
-       
-
-    </Grid>    
+                    <ListView.ItemTemplate  Grid.Row="3" Grid.Column="0">
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame  BorderColor="Orange" BackgroundColor="White" Padding="0">
+                                    <Label  Text="{Binding Name}" TextColor="#FE931F" Padding="0,10,0,10" HeightRequest="100"
+                                             FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Frame>
+    </Grid>
 </ContentPage>

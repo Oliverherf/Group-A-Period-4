@@ -200,7 +200,55 @@ namespace Don2Loot
             reward.ChestName = chestName;
             saveReward(reward);
         }
+
+        /// <summary>
+        /// Takes the name of the chest as input and returns a random item from the chest based on drop chances
+        /// </summary>
+        /// <param name="chestName">String. Specifies name of the chest in DB</param>
+        public async Task<Reward> getCrateDrop(String chestName) {
+            chestName = chestName.Trim(specialCharacters);
+            Random rnd = new Random();
+            int rarityType = 0;
+
+            //Get rewards into a local variable
+            List<Reward> rewards = new List<Reward>();
+            rewards = await App.Database.getReward();
+
+            //Create a list storing all unique droprates (rates of different categories)
+            List<int> dropRates = new List<int>();
+            foreach (Reward reward in rewards) {
+                if (!dropRates.Contains(reward.RewardRarity)) {
+                    dropRates.Add(reward.RewardRarity);
+                }
+            }
+            //Generate list to select the rarirty type randomly
+            List<int> dropSelection = new List<int>();
+            for (int i = 0; i < dropRates.Count; i++) {
+                for (int a = 0; a < dropRates[i]; a++) {
+                    dropSelection.Add(i);
+                }
+            }
+
+            //Get random rarity type
+            int randomNumber = rnd.Next(dropSelection.Count);
+            //Save the rarity type
+            rarityType = dropSelection[randomNumber];
+
+            //Leave only the rewards with suitable rarityTypes
+            rewards.RemoveAll(r => r.RewardRarity != rarityType);
+
+            //Get final random Reward 
+            randomNumber = rnd.Next(rewards.Count);
+            Reward outputReward = rewards[randomNumber];
+
+            //Update the reward to be unlocked
+            _ = updateRewardIsUnlocked(outputReward.RewardId, true);
+            return outputReward;
+        }
     }
+}
+
+
 
     //Creation of the database
     [Table("User")]
@@ -293,4 +341,3 @@ namespace Don2Loot
         [NotNull]
         public string RewardName { get; set; }
     }
-}
