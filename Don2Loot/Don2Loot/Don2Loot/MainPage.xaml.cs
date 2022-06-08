@@ -38,5 +38,9 @@ namespace Don2Loot
         {
             await Navigation.PushAsync(new Vote());
         }
+        async void ItemWonButton(object sender, EventArgs e) 
+        {
+            await Navigation.PushAsync(new ItemWon());
+        }
     }
 }
