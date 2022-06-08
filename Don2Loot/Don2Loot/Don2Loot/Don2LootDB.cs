@@ -341,4 +341,3 @@ namespace Don2Loot
         [NotNull]
         public string RewardName { get; set; }
     }
-}
