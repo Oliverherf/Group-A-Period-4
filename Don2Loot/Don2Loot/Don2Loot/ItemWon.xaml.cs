@@ -15,6 +15,7 @@ namespace Don2Loot
         public ItemWon()
         {
             InitializeComponent();
+            this.BindingContext = this;
         }
 
         private void backButton(object sender, EventArgs e)
@@ -27,11 +28,18 @@ namespace Don2Loot
             await Navigation.PopAsync();
         }
 
-        private void itemDisplay()
+        async void ItemWonButton(object sender, EventArgs e)
+        {
+            ItemDisplayAsync();
+            openCrateButton.IsVisible = false;
+        }
+
+        private async void ItemDisplayAsync()
         {
             //Temporary hard-coding a variable. Future: get chest name from the store page
             String chestName = "anime";
-
+            Reward recievedReward = await App.Database.getCrateDrop(chestName);
+            rewardImageBind.Source = recievedReward.RewardImage;
         }
     }
 }
