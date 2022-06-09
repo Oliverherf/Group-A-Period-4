@@ -2,6 +2,7 @@
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,9 +10,6 @@ namespace Don2Loot
 {
     public class Database
     {
-        //to run database initialization once
-        private bool isMakingDB = false;
-
         char[] specialCharacters = {',', '<', '.', '>', ';', ':', '\'', '"', '{', '{', ']', '}', '\\',
             '|', '`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+'};
         char[] specialCharactersForEmail = {',', '<', '>', ';', ':', '\'', '"', '{', '{', ']', '}', '\\',
@@ -19,17 +17,24 @@ namespace Don2Loot
         private readonly SQLiteAsyncConnection _database;
         public Database(string dbPath)
         {
-            //makes sure that it doesnt run infinitely when creating default database entries
-            if(isMakingDB == false)
+            //checks if file exists beforehand to make sure that it doesnt get
+            //created before checking to add db entries
+            bool dbNotCreated = true;
+            if(File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Don2Loot.db3")))
             {
+                dbNotCreated = false;
+            }
 
-                _database = new SQLiteAsyncConnection(dbPath);
-                isMakingDB = true;
-                _database.CreateTableAsync<User>();
-                _database.CreateTableAsync<Task>();
-                _database.CreateTableAsync<Chest>();
-                _database.CreateTableAsync<Reward>();
+            //makes sure that it doesnt run infinitely when creating default database entries
+            _database = new SQLiteAsyncConnection(dbPath);
+            _database.CreateTableAsync<User>().Wait();
+            _database.CreateTableAsync<Task>().Wait();
+            _database.CreateTableAsync<Chest>().Wait();
+            _database.CreateTableAsync<Reward>().Wait();
 
+            //if db actually didnt exist add data to db
+            if (dbNotCreated)
+            {
                 generateDBRewards(false, "MUI_Goku", "Mastered Ultra Instinct Goku", 1, "anime");
 
                 generateDBRewards(false, "Naruto", "Sage of Six Paths Naruto", 1, "anime");
@@ -198,7 +203,7 @@ namespace Don2Loot
             reward.RewardName = rewardName;
             reward.RewardRarity = rewardRarity;
             reward.ChestName = chestName;
-            saveReward(reward);
+            saveReward(reward).Wait();
         }
 
         /// <summary>
@@ -303,7 +308,7 @@ namespace Don2Loot
     [Table("Chest")]
     public class Chest
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         [Column("chestname")]
         [NotNull]
         public string ChestName { get; set; }
