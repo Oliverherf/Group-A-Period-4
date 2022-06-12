@@ -55,7 +55,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Frame  BorderColor="Orange" BackgroundColor="White" Padding="0">
-                                    <Label  Text="{Binding Name}" TextColor="#FE931F" Padding="0,10,0,10" HeightRequest="100"
+                                    <Label  Text="{Binding TaskName}" TextColor="#FE931F" Padding="0,10,0,10" HeightRequest="100"
                                              FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                                 </Frame>
                             </ViewCell>

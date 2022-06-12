@@ -12,17 +12,22 @@ namespace Don2Loot
     {
 
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
+        ObservableCollection<Task> tasks = null;
         public TaskPage()
         {
+            
             InitializeComponent();
             BindingContext = this;
-            task.Add(new TaskInfo { Name = "Working" });
-            task.Add(new TaskInfo { Name = "Task2" });
-            task.Add(new TaskInfo { Name = "Task3" });
-            task.Add(new TaskInfo { Name = "Task4" });
-            myListView.ItemsSource = task;
+            myListView.ItemsSource = tasks;
             // Sherlock.TextChanged += Sherlock_TextChanged;
 
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            tasks = new ObservableCollection<Task>(await App.Database.getTask());
+            
         }
 
         private void Sherlock_TextChanged(object sender, TextChangedEventArgs e)
@@ -62,29 +67,16 @@ namespace Don2Loot
             var task = e.Item as TaskInfo;
             DisplayAlert("Tapped", $"{task.Name}\n", "OK");
         }
-
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-
-        //private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-
-        //}
-
-        //private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        //{
-
-        //}
-
         private void myListView_Refreshing(object sender, EventArgs e)
         {
             myListView.ItemsSource = null;
             myListView.ItemsSource = task;
             myListView.EndRefresh();
         }
-
         private void backButton(object sender, EventArgs e)
         {
             Navigation.PopAsync();
