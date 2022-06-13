@@ -49,7 +49,7 @@
                     <Image Source="{Binding rewardImage}" x:Name="rewardImageBind" IsVisible="false"/>
                 </Frame>
 
-                <Button Grid.Column="0" Grid.Row="2" TextColor="#FE931F" Text="SEE YOUR COLLECTION" BackgroundColor="#2D2F30" FontAttributes="Bold" Clicked="collectionPageButton" IsVisible="false" x:Name="seeCollectionButton"/>
+                <Label Grid.Column="0" Grid.Row="2" TextColor="#FE931F" Text="" BackgroundColor="#2D2F30" FontAttributes="Bold" IsVisible="false" x:Name="rarityTypeLabel" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
             </Grid>
         </Grid>
     </ContentPage.Content>
