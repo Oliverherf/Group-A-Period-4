@@ -48,7 +48,6 @@
                 <Label Text="TASK LISTING:" TextColor="#FE931F" FontSize="Large" FontAttributes="Bold" Grid.Row="0"/>
                 <ListView  x:Name="myListView" ItemSelected ="myListView_ItemSelected"
                                 Grid.Row="1" Grid.Column="0" 
-                                ItemTapped="myListView_ItemTapped"
                                 HasUnevenRows="True"
                                 IsPullToRefreshEnabled="True"  >
                     <ListView.ItemTemplate  Grid.Row="3" Grid.Column="0">
