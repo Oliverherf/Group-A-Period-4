@@ -20,7 +20,7 @@ namespace Don2Loot
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-                if (string.IsNullOrEmpty(txtUserEmail.Text))
+                if (string.IsNullOrEmpty(txtName.Text))
                 {
                     DisplayAlert("Alert!", "All fields shoud be fill in!", "Ok");
                     return;
@@ -31,14 +31,14 @@ namespace Don2Loot
                     return;
                 }  
 
-            if (txtUserEmail.Text.Length > 20 && txtUserEmail.Text.Length < 2)
+            if (txtName.Text.Length > 20 && txtName.Text.Length < 2)
                 {
                     //DisplayAlert("Alert", txtUserName.MaxLength.ToString(), "ok");
                     DisplayAlert("Alert!", "Username must contain 2-20 characters", "Ok");
                     return;
                 }
 
-                if (!IsAllLetters(txtUserEmail.Text))
+                if (!IsAllLetters(txtName.Text))
                 {
                     DisplayAlert("Alert!", "Username should contain only letters", "Ok");
                     return;
@@ -68,12 +68,12 @@ namespace Don2Loot
             var contact = new Contact
                 {
                     Email = txtEmail.Text,
-                    Name = txtUserEmail.Text.ToUpper()
+                    Name = txtName.Text.ToUpper()
                 };
 
                 User user = new User();
-                user.UserName = txtFileName.Text;
-                user.UserEmail = txtUserEmail.Text;
+                user.UserName = txtName.Text;
+                user.UserEmail = txtEmail.Text;
                 user.UserSignature = lblBase64Value.Text;
                 App.Database.saveUser(user);
                 List<User> user1 = new List<User>();
