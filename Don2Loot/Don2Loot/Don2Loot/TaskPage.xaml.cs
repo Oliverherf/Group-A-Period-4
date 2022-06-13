@@ -18,7 +18,7 @@ namespace Don2Loot
             
             InitializeComponent();
             BindingContext = this;
-            myListView.ItemsSource = tasks;
+ 
             // Sherlock.TextChanged += Sherlock_TextChanged;
 
         }
@@ -27,7 +27,7 @@ namespace Don2Loot
         {
             base.OnAppearing();
             tasks = new ObservableCollection<Task>(await App.Database.getTask());
-            
+            myListView.ItemsSource = tasks;
         }
 
         private void Sherlock_TextChanged(object sender, TextChangedEventArgs e)

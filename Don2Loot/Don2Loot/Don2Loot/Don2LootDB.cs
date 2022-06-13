@@ -221,11 +221,27 @@ namespace Don2Loot
 
             //Create a list storing all unique droprates (rates of different categories)
             List<int> dropRates = new List<int>();
+            int tempDropRate = 0;
             foreach (Reward reward in rewards) {
-                if (!dropRates.Contains(reward.RewardRarity)) {
-                    dropRates.Add(reward.RewardRarity);
+                switch (reward.RewardRarity) {
+                    case 1:
+                        tempDropRate = 1;
+                        break;
+                    case 2:
+                        tempDropRate = 4;
+                        break;
+                    case 3:
+                        tempDropRate = 20;
+                        break;
+                    default:
+                        tempDropRate = 75;
+                        break;
+                }
+                if (!dropRates.Contains(tempDropRate)) {
+                    dropRates.Add(tempDropRate);
                 }
             }
+
             //Generate list to select the rarirty type randomly
             List<int> dropSelection = new List<int>();
             for (int i = 0; i < dropRates.Count; i++) {

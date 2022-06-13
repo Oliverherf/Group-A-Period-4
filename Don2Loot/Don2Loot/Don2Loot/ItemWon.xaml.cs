@@ -30,7 +30,7 @@ namespace Don2Loot
         }
 
         async void ItemWonButton(object sender, EventArgs e) {
-            ItemDisplayAsync();
+            Reward receivedReward = await ItemDisplayAsync();
             openCrateButton.IsVisible = false;
 
             //Make loop go for 3 seconds to run the animation
@@ -72,14 +72,31 @@ namespace Don2Loot
             timerAnim.Reset();
             rewardImageBind.IsVisible = true;
 
+            //Display item rarity
+            rarityTypeLabel.IsVisible = true;
+            switch (receivedReward.RewardRarity) {
+                case 1:
+                    rarityTypeLabel.Text = "Legendary item";
+                    break;
+                case 2:
+                    rarityTypeLabel.Text = "Rare item";
+                    break;
+                case 3:
+                    rarityTypeLabel.Text = "Popular item";
+                    break;
+                default:
+                    rarityTypeLabel.Text = "Common item";
+                    break;
+            }
         }
 
-        private async void ItemDisplayAsync()
+        private async Task<Reward> ItemDisplayAsync()
         {
             //Temporary hard-coding a variable. Future: get chest name from the store page
             String chestName = "anime";
             Reward recievedReward = await App.Database.getCrateDrop(chestName);
             rewardImageBind.Source = recievedReward.RewardImage;
+            return recievedReward;
             
         }
 

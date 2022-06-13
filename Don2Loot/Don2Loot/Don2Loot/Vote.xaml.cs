@@ -16,9 +16,9 @@ namespace Don2Loot
         {
             InitializeComponent();
         }
-        private void backButton_Clicked(object sender, EventArgs e)
+        async void backButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MainPage());
+            await Navigation.PopAsync();
         }
     }
 }
