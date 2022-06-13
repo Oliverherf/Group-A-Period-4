@@ -74,7 +74,7 @@ namespace Don2Loot
                 User user = new User();
                 user.UserName = txtFileName.Text;
                 user.UserEmail = txtUserEmail.Text;
-                user.UserSignature = signature.CaptionText;
+                user.UserSignature = lblBase64Value.Text;
                 App.Database.saveUser(user);
                 List<User> user1 = new List<User>();
                 user1 = await App.Database.getUser();
