@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.LocalNotification;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,15 +11,57 @@ namespace Don2Loot
 {
     public partial class MainPage : ContentPage
     {
+
         public MainPage()
         {
             InitializeComponent();
+            notificationTest();
+
+            //NotificationCenter.Current.NotificationActionTapped += OnLocalNotificationTapped;
         }
 
+        //private void OnLocalNotificationTapped(NotificationEventArgs e)
+        //{
+        //    var notification = new NotificationRequest
+        //    {
+        //        BadgeNumber = 1,
+        //        Description = "Did you take any steps into make your future better?",
+        //        Title = "What did you do Today?",
+        //        ReturningData = "Dummy Data",
+        //        NotificationId = 1337,
+        //        Schedule =
+        //        {
+        //           NotifyTime = DateTime.Now.AddSeconds(10)
+        //        }
+
+        //    };
+        //    NotificationCenter.Current.Show(notification);
+        //}
+
+
+
+        private void notificationTest()
+        {
+            var notification = new NotificationRequest
+            {
+                BadgeNumber = 1,
+                Description = "Did you take any steps into make your future better?",
+                Title = "What did you do Today?",
+                ReturningData = "Dummy Data",
+                NotificationId = 1337,
+                Schedule =
+                {
+                   NotifyTime = DateTime.Now.AddSeconds(10)
+                }
+
+            };
+            NotificationCenter.Current.Show(notification);
+
+        }
         async void collectionPageButton(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CollectionPage());
-        }
+        } 
 
         async void newTaskButton(object sender, EventArgs e)
         {
@@ -37,6 +80,10 @@ namespace Don2Loot
         async void VoteButton(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Vote());
+        }
+        async void ItemWonButton(object sender, EventArgs e) 
+        {
+            await Navigation.PushAsync(new ItemWon());
         }
     }
 }

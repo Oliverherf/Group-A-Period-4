@@ -85,9 +85,22 @@ namespace Draft4
             myListView.EndRefresh();
         }
 
-        private void backButton_Clicked(object sender, EventArgs e)
+        private async void backButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MainPage());
+
+            var notifiation = new NotificationRequest
+            {
+                BadgeNumber = 1,
+                Description = "Test Description",
+                Title = "Notification!",
+                ReturningData = "Dummy Data",
+                NotificationId = 1337,
+                Schedule =
+                {
+                    NotifyTime = DateTime.Now.AddSeconds(5)
+                }
+            };
+            await NotificationCenter.Current.Show(notifiation);
         }
     }
 }

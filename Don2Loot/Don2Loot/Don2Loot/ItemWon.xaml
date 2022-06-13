@@ -35,10 +35,13 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="YOU GOT A RARE ITEM!" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="36" VerticalTextAlignment="Center" BackgroundColor="#2D2F30"/>
+                <Label Text="YOU GOT AN ITEM!" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" TextColor="#FE931F" FontSize="36" VerticalTextAlignment="Center" BackgroundColor="#2D2F30"/>
+
                 <Frame Grid.Column="0" Grid.Row="1" BackgroundColor="#FE931F" CornerRadius="30" Margin="10">
-                    <Image Source="coin"/> <!-- This is just a placeholder image -->
+                    <Button Text="OPEN CRATE" TextColor="White" BackgroundColor="#FE931F" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold" Clicked="ItemWonButton" x:Name="openCrateButton"/>
                 </Frame>
+                <Image Source="{Binding rewardImage}" x:Name="rewardImageBind"/>
+
                 <Button Grid.Column="0" Grid.Row="2" TextColor="#FE931F" Text="SEE YOUR COLLECTION" BackgroundColor="#2D2F30" FontAttributes="Bold" Clicked="collectionPageButton"/>
             </Grid>
         </Grid>
