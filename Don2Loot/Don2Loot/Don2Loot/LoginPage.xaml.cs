@@ -20,7 +20,7 @@ namespace Don2Loot
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-                if (string.IsNullOrEmpty(txtUserName.Text))
+                if (string.IsNullOrEmpty(txtUserEmail.Text))
                 {
                     DisplayAlert("Alert!", "All fields shoud be fill in!", "Ok");
                     return;
@@ -31,14 +31,14 @@ namespace Don2Loot
                     return;
                 }  
 
-            if (txtUserName.Text.Length > 20 && txtUserName.Text.Length < 2)
+            if (txtUserEmail.Text.Length > 20 && txtUserEmail.Text.Length < 2)
                 {
                     //DisplayAlert("Alert", txtUserName.MaxLength.ToString(), "ok");
                     DisplayAlert("Alert!", "Username must contain 2-20 characters", "Ok");
                     return;
                 }
 
-                if (!IsAllLetters(txtUserName.Text))
+                if (!IsAllLetters(txtUserEmail.Text))
                 {
                     DisplayAlert("Alert!", "Username should contain only letters", "Ok");
                     return;
@@ -49,7 +49,7 @@ namespace Don2Loot
                     DisplayAlert("Alert!", "Email is not valid", "Ok");
                     return;
                 }
-                
+
                  try
                  {
                     var image = await signature.GetImageStreamAsync(SignaturePad.Forms.SignatureImageFormat.Png);
@@ -64,19 +64,29 @@ namespace Don2Loot
                  {
                     await DisplayAlert("Error", ex.Message.ToString(), "Ok");
                  }
-
-
             //System.Diagnostics.Debug.WriteLine("Success");
             var contact = new Contact
                 {
                     Email = txtEmail.Text,
-                    Name = txtUserName.Text.ToUpper()
+                    Name = txtUserEmail.Text.ToUpper()
                 };
+
+                User user = new User();
+                user.UserName = txtFileName.Text;
+                user.UserEmail = txtUserEmail.Text;
+                user.UserSignature = signature.CaptionText;
+                App.Database.saveUser(user);
+                List<User> user1 = new List<User>();
+                user1 = await App.Database.getUser();
+
                 var mainPage = new MainPage();
                 mainPage.BindingContext = contact;
-                //Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
+                Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
                 await Navigation.PopAsync();                    //popping current page off the navigation stack (Mainpage is now the main page/root page
-            }
+
+                
+        }
+
             public bool IsAllLetters(string s)
             {
                 foreach (char c in s)
