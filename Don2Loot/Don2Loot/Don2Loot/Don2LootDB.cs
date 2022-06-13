@@ -233,7 +233,7 @@ namespace Don2Loot
                     case 3:
                         tempDropRate = 20;
                         break;
-                    default:
+                    case 4:
                         tempDropRate = 75;
                         break;
                 }
@@ -245,8 +245,9 @@ namespace Don2Loot
             //Generate list to select the rarirty type randomly
             List<int> dropSelection = new List<int>();
             for (int i = 0; i < dropRates.Count; i++) {
-                for (int a = 0; a < dropRates[i]; a++) {
-                    dropSelection.Add(i);
+                for (int a = 0; a <= dropRates[i]; a++) {
+                    //Add +1 since list indexes start from 0, but rarity types start from 1
+                    dropSelection.Add(i+1);
                 }
             }
 

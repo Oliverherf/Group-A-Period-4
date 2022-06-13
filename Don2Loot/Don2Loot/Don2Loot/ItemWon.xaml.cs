@@ -84,7 +84,7 @@ namespace Don2Loot
                 case 3:
                     rarityTypeLabel.Text = "Popular item";
                     break;
-                default:
+                case 4:
                     rarityTypeLabel.Text = "Common item";
                     break;
             }
