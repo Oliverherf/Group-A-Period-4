@@ -158,5 +158,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Victory.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\signatures\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

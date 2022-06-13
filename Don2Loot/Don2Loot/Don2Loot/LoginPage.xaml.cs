@@ -49,12 +49,22 @@ namespace Don2Loot
                     DisplayAlert("Alert!", "Email is not valid", "Ok");
                     return;
                 }
+                
+                 try
+                 {
+                    var image = await signature.GetImageStreamAsync(SignaturePad.Forms.SignatureImageFormat.Png);
+                    var mStream = (MemoryStream)image;
+                    byte[] data = mStream.ToArray();
+                    string base64Val = Convert.ToBase64String(data);
+                    lblBase64Value.Text = base64Val;
+                    imgSignature.Source = ImageSource.FromStream(() => mStream);
 
-                 Stream image = await  Signature.GetImageStreamAsync(SignatureImageFormat.Jpeg);
-                 //using (FileStream file = new FileStream(file_path, FileMode.Create, System.IO.FileAccess.Write))
-                 //{
-                    //image.CopyTo(file);
-                 //}
+                 }
+                 catch (Exception ex)
+                 {
+                    await DisplayAlert("Error", ex.Message.ToString(), "Ok");
+                 }
+
 
             //System.Diagnostics.Debug.WriteLine("Success");
             var contact = new Contact
@@ -64,7 +74,7 @@ namespace Don2Loot
                 };
                 var mainPage = new MainPage();
                 mainPage.BindingContext = contact;
-                Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
+                //Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
                 await Navigation.PopAsync();                    //popping current page off the navigation stack (Mainpage is now the main page/root page
             }
             public bool IsAllLetters(string s)
@@ -88,6 +98,8 @@ namespace Don2Loot
                     return false;
                 }
             }
+
+       
     }
 
     internal class Contact
