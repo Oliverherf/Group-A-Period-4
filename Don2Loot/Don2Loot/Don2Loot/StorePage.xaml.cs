@@ -37,7 +37,7 @@ namespace Don2Loot
         private void openCrate(object sender)
         {
             //some function that remembers the crate and brings to crate opening page ((Chest)sender)
-            //Navigation.PushAsync(new )
+            //Navigation.PushAsync(new )-----------------------------------------------------------------Discuss this with team----------
         }
     }
 }

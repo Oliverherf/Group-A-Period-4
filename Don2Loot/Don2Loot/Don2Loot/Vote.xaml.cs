@@ -16,9 +16,19 @@ namespace Don2Loot
         {
             InitializeComponent();
         }
-        async void backButton_Clicked(object sender, EventArgs e)
+        async void backButton(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+        async void setBackButton(object sender, EventArgs e)
+        {
+            //do something aka set notification, cancel streak, etc.
+            await DisplayAlert("SADGE", "YOU LOST YOUR STREAK", "Ok");  //testing purposes
+        }
+        async void victoryButton(object sender, EventArgs e)
+        {
+            //do something else aka set notification, advance streak, award points, etc.
+            await DisplayAlert("HAP", "GOOD JOB", "Ok");    //testing purposes
         }
     }
 }
