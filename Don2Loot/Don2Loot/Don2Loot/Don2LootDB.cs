@@ -35,31 +35,67 @@ namespace Don2Loot
             //if db actually didnt exist add data to db
             if (dbNotCreated)
             {
-                generateDBRewards(false, "MUI_Goku", "Mastered Ultra Instinct Goku", 1, "anime");
+                generateDBRewards(false, "MUI_Goku", "Mastered Ultra Instinct Goku", 1, "Anime Crate");
 
-                generateDBRewards(false, "Naruto", "Sage of Six Paths Naruto", 1, "anime");
+                generateDBRewards(false, "Naruto", "Sage of Six Paths Naruto", 1, "Anime Crate");
 
-                generateDBRewards(false, "Saitama", "Saitama", 2, "anime");
+                generateDBRewards(false, "Saitama", "Saitama", 2, "Anime Crate");
 
-                generateDBRewards(false, "Luffy", "Luffy", 2, "anime");
+                generateDBRewards(false, "Luffy", "Luffy", 2, "Anime Crate");
 
-                generateDBRewards(false, "Ichigo", "Ichigo", 2, "anime");
+                generateDBRewards(false, "Ichigo", "Ichigo", 2, "Anime Crate");
 
-                generateDBRewards(false, "Hisoka", "Hisoka", 3, "anime");
+                generateDBRewards(false, "Hisoka", "Hisoka", 3, "Anime Crate");
 
-                generateDBRewards(false, "Yuujiro", "Yuujiro", 3, "anime");
+                generateDBRewards(false, "Yuujiro", "Yuujiro", 3, "Anime Crate");
 
-                generateDBRewards(false, "Attack_Titan", "Attack Titan", 3, "anime");
+                generateDBRewards(false, "Attack_Titan", "Attack Titan", 3, "Anime Crate");
 
-                generateDBRewards(false, "Dio", "Dio", 3, "anime");
+                generateDBRewards(false, "Dio", "Dio", 3, "Anime Crate");
 
-                generateDBRewards(false, "Meliodas", "Meliodas", 4, "anime");
+                generateDBRewards(false, "Meliodas", "Meliodas", 4, "Anime Crate");
 
-                generateDBRewards(false, "Tanjiro", "Tanjiro", 4, "anime");
+                generateDBRewards(false, "Tanjiro", "Tanjiro", 4, "Anime Crate");
 
-                generateDBRewards(false, "Gojo", "Gojo", 4, "anime");
+                generateDBRewards(false, "Gojo", "Gojo", 4, "Anime Crate");
 
-                generateDBRewards(false, "Kaneki", "Kaneki", 4, "anime");
+                generateDBRewards(false, "Kaneki", "Kaneki", 4, "Anime Crate");
+
+                generateDBRewards(false, "Spongebob_Squarepants", "Spongebob", 1, "Cartoon Crate");
+
+                generateDBRewards(false, "Peter_Griffin", "Peter Griffin", 1, "Cartoon Crate");
+
+                generateDBRewards(false, "Homer_Simpson", "Homer Simpson", 2, "Cartoon Crate");
+
+                generateDBRewards(false, "Bender", "Bender", 2, "Cartoon Crate");
+
+                generateDBRewards(false, "Eric_Cartman", "Eric Cartman", 2, "Cartoon Crate");
+
+                generateDBRewards(false, "Roger", "Roger", 3, "Cartoon Crate");
+
+                generateDBRewards(false, "Rick_Sanchez", "Rick Sanchez", 3, "Cartoon Crate");
+
+                generateDBRewards(false, "Balloony", "Balloony", 3, "Cartoon Crate");
+
+                generateDBRewards(false, "Bill_Cipher", "Bill Cipher", 3, "Cartoon Crate");
+
+                generateDBRewards(false, "Shaun_The_Sheep", "Shaun The Sheep", 3, "Cartoon Crate");
+
+                generateDBRewards(false, "Nijntje", "Nijntje", 4, "Cartoon Crate");
+
+                generateDBRewards(false, "Randall", "Randall", 4, "Cartoon Crate");
+
+                generateDBRewards(false, "Stitch", "Stitch", 4, "Cartoon Crate");
+
+                generateDBRewards(false, "Mike_Wazowski", "Mike Wazowski", 4, "Cartoon Crate");
+
+                generateDBRewards(false, "Winnie_The_Pooh", "Winnie The Pooh", 4, "Cartoon Crate");
+
+                generateDBChests("Anime Crate", 150, "Anime_Crate");
+
+                generateDBChests("Cartoon Crate", 100, "Cartoon_Crate");
+
+                generateDBChests("Meme Crate", 125, "Meme_Crate");
             }
         }
 
@@ -206,6 +242,15 @@ namespace Don2Loot
             saveReward(reward).Wait();
         }
 
+        public void generateDBChests(string chestName, int chestPrice, string chestImage)
+        {
+            Chest chest = new Chest();
+            chest.ChestPrice = chestPrice;
+            chest.ChestImage = chestImage;
+            chest.ChestName = chestName;
+            saveChest(chest).Wait();
+        }
+
         /// <summary>
         /// Takes the name of the chest as input and returns a random item from the chest based on drop chances
         /// </summary>
@@ -333,6 +378,10 @@ namespace Don2Loot
         [Column("chestprice")]
         [NotNull]
         public int ChestPrice { get; set; }
+
+        [Column("chestimage")]
+        [NotNull]
+        public string ChestImage { get; set; }
     }
 
     [Table("Reward")]

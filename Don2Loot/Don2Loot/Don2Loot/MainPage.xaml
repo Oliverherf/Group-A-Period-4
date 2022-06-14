@@ -170,6 +170,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
@@ -277,6 +278,22 @@
                                    FontAttributes="Bold"
                                    BackgroundColor="White"
                                    Clicked="ItemWonButton"/>
+
+                    </Frame>
+
+                    <Frame   Grid.Row="7" 
+                                 Grid.Column="1"
+                                 CornerRadius="15"
+                                 BorderColor="Orange"
+                                 Margin="1">
+
+                        <Button Text="Store Page"
+                                   TextColor="Orange"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   BackgroundColor="White"
+                                   Clicked="storePageButton"/>
 
                     </Frame>
 
