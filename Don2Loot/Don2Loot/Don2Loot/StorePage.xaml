@@ -5,7 +5,7 @@
              NavigationPage.HasNavigationBar="false">
     <Grid BackgroundColor="#2D2F30">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
@@ -16,12 +16,19 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Text="&lt;" TextColor="#FE931F" Padding="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start"
-                FontSize="50" Clicked="backButton"  BackgroundColor="#2D2F30" VerticalOptions="Center"/>
-        <Image Source="coin" Grid.Column="2" Grid.Row="0" HorizontalOptions="End" Margin="0,5,-5,0" />
-        <Label FontSize="Medium" TextColor="White" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" HorizontalTextAlignment="Start" MinimumWidthRequest="1000" FlowDirection="LeftToRight" VerticalOptions="Center" Padding="65,0,0,0">
-            1000000
-        </Label>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+            <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </Grid>
         <flv:FlowListView x:Name="storePageView" HasUnevenRows="True" FlowItemsSource="{Binding Path=Key}"
                           Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3"
                           FlowColumnCount="2" >
