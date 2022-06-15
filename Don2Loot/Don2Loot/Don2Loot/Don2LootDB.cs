@@ -125,7 +125,7 @@ namespace Don2Loot
             user2.UserName = user.UserName.Trim(specialCharacters);
             user2.UserEmail = user.UserEmail.Trim(specialCharactersForEmail);
             user2.UserSignature = user.UserSignature.Trim(specialCharacters);
-            user2.UserCoins = user.UserCoins;
+            user2.UserCoins = 100;
             user2.UserStreak = user.UserStreak;
             return _database.InsertAsync(user2);
         }
