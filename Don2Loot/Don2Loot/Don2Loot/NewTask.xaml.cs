@@ -36,7 +36,7 @@ namespace Don2Loot
             var notification = new NotificationRequest
             {
                 BadgeNumber = 1,
-                Description = "How did you do on " + task1[task1.Count() - 1].TaskName + "?",
+                Description = "How did you do on " + task1[task1.Count() - 1].TaskName.ToLower() + "?",
                 Title = task1[task1.Count() - 1].TaskName.ToUpper(),
                 ReturningData = taskId.ToString(),
                 NotificationId = taskId,

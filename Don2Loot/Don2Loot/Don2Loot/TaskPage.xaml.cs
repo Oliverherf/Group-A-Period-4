@@ -34,7 +34,7 @@ namespace Don2Loot
         }
         public class TaskInfo
         {
-           public string Name { get; set; }
+            public string Name { get; set; }
         }
 
         private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -67,7 +67,9 @@ namespace Don2Loot
 
         async void deleteButton(object sender)
         {
+            var task = (Task)sender;
             await App.Database.deleteTask((Task)sender);
+            NotificationCenter.Current.Cancel(task.Id);
             Navigation.InsertPageBefore(new TaskPage(), this);
             await Navigation.PopAsync();
         }
