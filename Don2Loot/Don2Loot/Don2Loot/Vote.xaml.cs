@@ -16,6 +16,14 @@ namespace Don2Loot
         {
             InitializeComponent();
         }
+
+        //Update coins
+        protected override async void OnAppearing() {
+            base.OnAppearing();
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            voteCoins.Text = users[0].UserCoins.ToString();
+        }
         async void backButton(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

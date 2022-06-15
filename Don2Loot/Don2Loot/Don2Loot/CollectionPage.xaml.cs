@@ -30,8 +30,13 @@ namespace Don2Loot
             List<Reward> rewards = new List<Reward>();
             rewards = await App.Database.getReward();
 
-            //creating groups to organize rewards based on what chest they were in
-            var groupByLastNamesQuery =
+            //Update coins
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            collectionCoins.Text = users[0].UserCoins.ToString();
+
+        //creating groups to organize rewards based on what chest they were in
+        var groupByLastNamesQuery =
             from reward in rewards
             group reward by reward.ChestName into newGroup
             orderby newGroup.Key

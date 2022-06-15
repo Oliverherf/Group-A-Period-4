@@ -19,7 +19,13 @@ namespace Don2Loot
             InitializeComponent();
             FlowListView.Init();
             this.BindingContext = this;
-            
+        }
+
+        protected override async void OnAppearing() {
+            base.OnAppearing();
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            storePageCoins.Text = users[0].UserCoins.ToString();
         }
 
         protected override async void OnAppearing()
