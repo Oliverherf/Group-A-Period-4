@@ -38,12 +38,10 @@ namespace Don2Loot
             }
         }
         
-
         protected override void OnSleep()
         {
 
         }
-
         protected override void OnResume()
         {
         }

@@ -14,13 +14,9 @@ namespace Don2Loot
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         ObservableCollection<Task> tasks = null;
         public TaskPage()
-        {
-            
+        {   
             InitializeComponent();
             BindingContext = this;
- 
-            // Sherlock.TextChanged += Sherlock_TextChanged;
-
         }
 
         protected override async void OnAppearing()
@@ -35,10 +31,9 @@ namespace Don2Loot
             System.Diagnostics.Debug.WriteLine("test");
             myListView.ItemsSource = task.Where(s => s.Name.StartsWith(e.NewTextValue));
         }
-
         public class TaskInfo
         {
-            public string Name { get; set; }
+           public string Name { get; set; }
         }
 
         private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -46,20 +41,13 @@ namespace Don2Loot
             var notification = new NotificationRequest
             {
                 BadgeNumber = 1,
-                Description = "From Zack to the loved one ",
-                Title = "I love you mom",
+                Description = "I believe in you",
+                Title = "You got this king",
                 ReturningData = "Dummy data",
                 NotificationId = 1337,
-                //Android = new Plugin.LocalNotification.AndroidOption.AndroidOptions
-                //{
-
-                //}
             };
 
             NotificationCenter.Current.Show(notification);
-
-            //var task = e.SelectedItem as TaskInfo;
-            //DisplayAlert("Selected", $"{task.Name}\n", "OK");
         }
 
         private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -70,12 +58,6 @@ namespace Don2Loot
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
-        private void myListView_Refreshing(object sender, EventArgs e)
-        {
-            myListView.ItemsSource = null;
-            myListView.ItemsSource = task;
-            myListView.EndRefresh();
         }
         private void backButton(object sender, EventArgs e)
         {

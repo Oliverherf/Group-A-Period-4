@@ -16,30 +16,7 @@ namespace Don2Loot
         {
             InitializeComponent();
             notificationTest();
-
-            //NotificationCenter.Current.NotificationActionTapped += OnLocalNotificationTapped;
         }
-
-        //private void OnLocalNotificationTapped(NotificationEventArgs e)
-        //{
-        //    var notification = new NotificationRequest
-        //    {
-        //        BadgeNumber = 1,
-        //        Description = "Did you take any steps into make your future better?",
-        //        Title = "What did you do Today?",
-        //        ReturningData = "Dummy Data",
-        //        NotificationId = 1337,
-        //        Schedule =
-        //        {
-        //           NotifyTime = DateTime.Now.AddSeconds(10)
-        //        }
-
-        //    };
-        //    NotificationCenter.Current.Show(notification);
-        //}
-
-
-
         private void notificationTest()
         {
             var notification = new NotificationRequest
