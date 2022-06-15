@@ -22,31 +22,31 @@ namespace Don2Loot
         {
                 if (string.IsNullOrEmpty(txtName.Text))
                 {
-                    DisplayAlert("Alert!", "All fields shoud be fill in!", "Ok");
+                    await DisplayAlert("Alert!", "All fields shoud be fill in!", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(txtEmail.Text))
                 {
-                    DisplayAlert("Alert!", "All fields shoud be filled in!", "Ok");
+                    await DisplayAlert("Alert!", "All fields shoud be filled in!", "Ok");
                     return;
                 }  
 
             if (txtName.Text.Length > 20 && txtName.Text.Length < 2)
                 {
                     //DisplayAlert("Alert", txtUserName.MaxLength.ToString(), "ok");
-                    DisplayAlert("Alert!", "Username must contain 2-20 characters", "Ok");
+                    await DisplayAlert("Alert!", "Username must contain 2-20 characters", "Ok");
                     return;
                 }
 
                 if (!IsAllLetters(txtName.Text))
                 {
-                    DisplayAlert("Alert!", "Username should contain only letters", "Ok");
+                    await DisplayAlert("Alert!", "Username should contain only letters", "Ok");
                     return;
                 }
 
                 if (!IsValidEmail(txtEmail.Text))
                 {
-                    DisplayAlert("Alert!", "Email is not valid", "Ok");
+                    await DisplayAlert("Alert!", "Email is not valid", "Ok");
                     return;
                 }
 
