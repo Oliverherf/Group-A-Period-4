@@ -263,6 +263,8 @@ namespace Don2Loot
             //Get rewards into a local variable
             List<Reward> rewards = new List<Reward>();
             rewards = await App.Database.getReward();
+            //Leave only the rewards from the desired Chest
+            rewards.RemoveAll(r => r.ChestName != chestName);
 
             //Create a list storing all unique droprates (rates of different categories)
             List<int> dropRates = new List<int>();
