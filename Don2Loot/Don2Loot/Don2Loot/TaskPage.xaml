@@ -54,8 +54,16 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Frame  BorderColor="Orange" BackgroundColor="White" Padding="0">
-                                    <Label  Text="{Binding TaskName}" TextColor="#FE931F" Padding="0,10,0,10" HeightRequest="100"
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="5*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label  Text="{Binding TaskName}" TextColor="#FE931F" Padding="0,10,0,10" HeightRequest="100"
                                              FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                        <Button Text="x" FontSize="30" TextColor="Gray" Grid.Column="1" BackgroundColor="Transparent"
+                                                Command="{Binding Path=BindingContext.deleteTaskCommand, Source={x:Reference myListView}}" CommandParameter="{Binding .}"/>
+                                    </Grid>
                                 </Frame>
                             </ViewCell>
                         </DataTemplate>

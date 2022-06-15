@@ -4,13 +4,14 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 using Plugin.LocalNotification;
+using System.Windows.Input;
 
 namespace Don2Loot
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TaskPage : ContentPage
     {
-
+        public ICommand deleteTaskCommand => new Command(deleteButton);
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         ObservableCollection<Task> tasks = null;
         public TaskPage()
@@ -62,6 +63,13 @@ namespace Don2Loot
         private void backButton(object sender, EventArgs e)
         {
             Navigation.PopAsync();
+        }
+
+        async void deleteButton(object sender)
+        {
+            await App.Database.deleteTask((Task)sender);
+            Navigation.InsertPageBefore(new TaskPage(), this);
+            await Navigation.PopAsync();
         }
     }
 }
