@@ -25,54 +25,26 @@
         </Grid.RowDefinitions>
 
 
-        <Frame HeightRequest="50"
-               WidthRequest="40"
-               CornerRadius="100" 
-               Padding="0"
-               Grid.Row="0" 
+        <Image Source="profile"
                Grid.Column="1"
-               IsClippedToBounds="True"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               Margin="0,5,50,0"
-               BorderColor="Orange">
+               Grid.Row="0"
+               HorizontalOptions="Start"
+               WidthRequest="35"/>
 
-            <Image Source="profile.jpg" 
-                   HorizontalOptions="FillAndExpand"
-                   VerticalOptions="FillAndExpand"
-                   Aspect="AspectFill">
-            </Image>
-        </Frame>
-
-        <!--<Frame Grid.Row="0"
+        <Label Text=""
                Grid.Column="3"
-               CornerRadius="100"
-               Margin="50,5,5,0"
-               IsClippedToBounds="True"
-               Padding="0"
-               VerticalOptions="Center"
-               HorizontalOptions="Center"
-               HeightRequest="50"
-               WidthRequest="50"
-               >-->
-        <Image Source="coin"
-                   Grid.Row="0"
-                   Grid.Column="3"
-                   HeightRequest="30"/>
+               HorizontalOptions="EndAndExpand"
+               TextColor="White"
+               FontSize="Medium"
+               Margin="0,5,0,0"
+               FontAttributes="Bold"
+               x:Name="mainPageCoins"/>
 
-        <SearchBar Grid.Row="0" 
-                   Grid.Column="4"
-                   VerticalOptions="End"
-                   FontSize="Medium"
-                   PlaceholderColor="White"
-                   Placeholder="Search Bar"
-                   HorizontalTextAlignment="Center"
-                   CancelButtonColor="Red"
-                   TextColor="White"
-                   TextTransform="Lowercase"
-                   FontAttributes="Bold" 
-                   FlowDirection="LeftToRight">
-        </SearchBar>
+        <Image Source="coin"
+               Grid.Row="0"
+               Grid.Column="4"
+               WidthRequest="50"
+               HorizontalOptions="Start"/>
 
         <Label 
             Grid.Row="1" 

@@ -21,7 +21,15 @@ namespace Don2Loot
             this.usedChest = usedChest;
         }
 
-        private void backButton(object sender, EventArgs e)
+        //Make sure coins are updated when page is opened
+        protected override async void OnAppearing() {
+            base.OnAppearing();
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            itemWonCoins.Text = users[0].UserCoins.ToString();
+        }
+
+            private void backButton(object sender, EventArgs e)
         {
             Navigation.PopAsync();
         }
@@ -32,9 +40,16 @@ namespace Don2Loot
         }
 
         async void ItemWonButton(object sender, EventArgs e) {
+            //Get an Iem from the chest
             Reward receivedReward = await ItemDisplayAsync();
             openCrateButton.IsVisible = false;
 
+            //Subtract the chest price from user coin balance
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            await App.Database.updateUserCoins(users[0].UserEmail, users[0].UserCoins - usedChest.ChestPrice);
+
+            //ANIMATION
             //Make loop go for 3 seconds to run the animation
             Stopwatch timerAnim = new Stopwatch();
             timerAnim.Start();
@@ -90,12 +105,12 @@ namespace Don2Loot
                     rarityTypeLabel.Text = "Common item";
                     break;
             }
+            //Display Item name
             itemWonName.Text = receivedReward.RewardName;
         }
 
         private async Task<Reward> ItemDisplayAsync()
         {
-            //Temporary hard-coding a variable. Future: get chest name from the store page
             String chestName = usedChest.ChestName;
             Reward recievedReward = await App.Database.getCrateDrop(chestName);
             rewardImageBind.Source = recievedReward.RewardImage;

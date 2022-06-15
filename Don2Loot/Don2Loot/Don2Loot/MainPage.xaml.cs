@@ -16,7 +16,36 @@ namespace Don2Loot
         {
             InitializeComponent();
             notificationTest();
+            this.BindingContext = this;
+            //NotificationCenter.Current.NotificationActionTapped += OnLocalNotificationTapped;
         }
+
+        //private void OnLocalNotificationTapped(NotificationEventArgs e)
+        //{
+        //    var notification = new NotificationRequest
+        //    {
+        //        BadgeNumber = 1,
+        //        Description = "Did you take any steps into make your future better?",
+        //        Title = "What did you do Today?",
+        //        ReturningData = "Dummy Data",
+        //        NotificationId = 1337,
+        //        Schedule =
+        //        {
+        //           NotifyTime = DateTime.Now.AddSeconds(10)
+        //        }
+
+        //    };
+        //    NotificationCenter.Current.Show(notification);
+        //}
+
+        protected override async void OnAppearing()
+        {
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            int coins = users[0].UserCoins;
+            mainPageCoins.Text = coins.ToString();
+        }
+
         private void notificationTest()
         {
             var notification = new NotificationRequest
@@ -68,5 +97,7 @@ namespace Don2Loot
         {
             await Navigation.PushAsync(new StorePage());
         }
+
+
     }
 }

@@ -19,7 +19,6 @@ namespace Don2Loot
             InitializeComponent();
             FlowListView.Init();
             this.BindingContext = this;
-            
         }
 
         protected override async void OnAppearing()
@@ -27,6 +26,10 @@ namespace Don2Loot
             base.OnAppearing();
             List<Chest> chests = await App.Database.getChest();
             storePageView.FlowItemsSource = chests;
+            //Update coins
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            storePageCoins.Text = users[0].UserCoins.ToString();
         }
 
             private void backButton(object sender, EventArgs e)
@@ -36,7 +39,19 @@ namespace Don2Loot
 
         async void openCrate(object sender)
         {
-            await Navigation.PushAsync(new ItemWon((Chest)sender));
+            List<User> user = await App.Database.getUser();
+            Chest chest = (Chest)sender;
+            if (user != null)
+            {
+                if (user[0].UserCoins < chest.ChestPrice)
+                {
+                    await DisplayAlert("not enough money", "you lack the required funds", "ok");
+                } else
+                {
+                    await Navigation.PushAsync(new ItemWon((Chest)sender));
+                }
+            }
+            
         }
     }
 }
