@@ -36,7 +36,19 @@ namespace Don2Loot
 
         async void openCrate(object sender)
         {
-            await Navigation.PushAsync(new ItemWon((Chest)sender));
+            List<User> user = await App.Database.getUser();
+            Chest chest = (Chest)sender;
+            if (user != null)
+            {
+                if (user[0].UserCoins < chest.ChestPrice)
+                {
+                    await DisplayAlert("not enough money", "you lack the required funds", "ok");
+                } else
+                {
+                    await Navigation.PushAsync(new ItemWon((Chest)sender));
+                }
+            }
+            
         }
     }
 }
