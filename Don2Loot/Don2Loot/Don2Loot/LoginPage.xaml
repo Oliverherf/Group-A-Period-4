@@ -9,13 +9,16 @@
     <StackLayout BackgroundColor="#2D2F30">
 
             <Label  x:Name="txtFileName" Text="REGISTRATION" HorizontalTextAlignment="Center" TextColor="White" FontSize="30" Margin="50"/>
-            <Frame BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F" WidthRequest="100" HeightRequest="60" Padding="2" Margin="0 20 20 20">
+            <Frame BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F" WidthRequest="100" HeightRequest="60" Padding="2">
+                <!--Margin="0 20 20 20"-->
                 <Entry x:Name="txtName" Placeholder ="Name" TextColor="White" PlaceholderColor="WhiteSmoke" HorizontalOptions="Center" WidthRequest="200" MaxLength="20"/>
             </Frame>
-            <Frame  BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F"  WidthRequest="100" HeightRequest="60" Padding="2" Margin="0 20 20 20">
+            <Frame  BackgroundColor="#707070" CornerRadius="60" BorderColor="#FE931F"  WidthRequest="100" HeightRequest="60" Padding="2">
+                <!--Margin="0 20 20 20"-->
                 <Entry x:Name="txtEmail" Placeholder ="Email" TextColor="White" PlaceholderColor="WhiteSmoke"  HorizontalOptions="Center" WidthRequest="200"/>
              </Frame>
-            <Frame  BackgroundColor="#707070" CornerRadius="30" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="200" Margin="0 20">
+            <Frame  BackgroundColor="#707070" CornerRadius="30" BorderColor="#FE931F"  WidthRequest="200" HeightRequest="200" >
+                <!--Margin="0 20"-->
                 <signature:SignaturePadView x:Name="signature" HorizontalOptions="FillAndExpand" StrokeColor="#FE931F" VerticalOptions="StartAndExpand" HeightRequest="300" MinimumHeightRequest="300" BackgroundColor="#707070" />
         </Frame>
         <Button
