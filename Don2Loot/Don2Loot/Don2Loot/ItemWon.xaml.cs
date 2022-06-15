@@ -88,6 +88,7 @@ namespace Don2Loot
                     rarityTypeLabel.Text = "Common item";
                     break;
             }
+            itemWonName.Text = receivedReward.RewardName;
         }
 
         private async Task<Reward> ItemDisplayAsync()
