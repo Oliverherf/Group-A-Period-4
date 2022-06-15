@@ -24,8 +24,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
-            <Label Grid.Row="0" Grid.Column="1" BackgroundColor="#2D2F30" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
-            <Image Grid.Row="0" Grid.Column="2" BackgroundColor="#2D2F30" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+            <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
         </Grid>
         <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="30" Margin="5">
             <SearchBar x:Name="Sherlock"
@@ -49,7 +49,7 @@
                 <ListView  x:Name="myListView" ItemSelected ="myListView_ItemSelected"
                                 Grid.Row="1" Grid.Column="0" 
                                 HasUnevenRows="True"
-                                IsPullToRefreshEnabled="True"  >
+                                IsPullToRefreshEnabled="False">
                     <ListView.ItemTemplate  Grid.Row="3" Grid.Column="0">
                         <DataTemplate>
                             <ViewCell>

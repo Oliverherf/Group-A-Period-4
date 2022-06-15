@@ -6,7 +6,7 @@
 
     <Grid BackgroundColor="#2D2F30" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -20,8 +20,19 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Text="&lt;" TextColor="#FE931F" Padding="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start"
-                FontSize="50" Clicked="backButton" BackgroundColor="#2D2F30"/>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="collectionCoins"/>
+            <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </Grid>
 
         <Label TextColor="White" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" FontSize="40">
             Your Rewards

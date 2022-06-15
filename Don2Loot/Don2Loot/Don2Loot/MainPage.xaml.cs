@@ -16,7 +16,7 @@ namespace Don2Loot
         {
             InitializeComponent();
             notificationTest();
-
+            this.BindingContext = this;
             //NotificationCenter.Current.NotificationActionTapped += OnLocalNotificationTapped;
         }
 
@@ -38,7 +38,13 @@ namespace Don2Loot
         //    NotificationCenter.Current.Show(notification);
         //}
 
-
+        protected override async void OnAppearing()
+        {
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            int coins = users[0].UserCoins;
+            mainPageCoins.Text = coins.ToString();
+        }
 
         private void notificationTest()
         {
@@ -83,7 +89,15 @@ namespace Don2Loot
         }
         async void ItemWonButton(object sender, EventArgs e) 
         {
-            await Navigation.PushAsync(new ItemWon());
+            Chest chest = null;
+            await Navigation.PushAsync(new ItemWon(chest));
         }
+
+        async void storePageButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StorePage());
+        }
+
+
     }
 }

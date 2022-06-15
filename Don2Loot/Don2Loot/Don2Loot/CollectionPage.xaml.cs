@@ -30,8 +30,13 @@ namespace Don2Loot
             List<Reward> rewards = new List<Reward>();
             rewards = await App.Database.getReward();
 
-            //creating groups to organize rewards based on what chest they were in
-            var groupByLastNamesQuery =
+            //Update coins
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            collectionCoins.Text = users[0].UserCoins.ToString();
+
+        //creating groups to organize rewards based on what chest they were in
+        var groupByLastNamesQuery =
             from reward in rewards
             group reward by reward.ChestName into newGroup
             orderby newGroup.Key
@@ -41,32 +46,19 @@ namespace Don2Loot
 
             List<imageGroup> images = new List<imageGroup>();
             //checks if database isnt empty
-            if(images2.Count != 0)
+            if(images2 != null)
             {
-                //loop the list in images2
-                for (int i = 0; i <= images2.Count; i++)
+                //create all groups first
+                for(int i = 0; i < images2.Count; i++)
                 {
-                    //loop list in images
-                    for (int j = 0; j <= images.Count; j++)
+                    images.Add(new imageGroup(images2[i].Key));
+                }
+                //add items into groups
+                for(int i = 0; i < images2.Count; i++)
+                {
+                    foreach(var img in images2[i])
                     {
-                        //check whether there are image lists
-                        if (images.Count == 0)
-                        {
-                            //make list
-                            images.Add(new imageGroup(images2[i].Key));
-
-                            //loop add the images to the list
-                            foreach (var image in images2[i])
-                            {
-                                //checks whether image is unlocked and able to be viewed
-                                if (!image.isUnlocked)
-                                {
-                                    images[j].Add(new image() { Image = image.RewardImage });
-                                }
-                            }
-                            //loop to next images2 because all images from a list have now been moved and wont show up again
-                            continue;
-                        }
+                        images[i].Add(new image() { Image = img.RewardImage });
                     }
                 }
             }
