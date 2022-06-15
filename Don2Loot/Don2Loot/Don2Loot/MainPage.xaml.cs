@@ -60,7 +60,8 @@ namespace Don2Loot
         }
         async void ItemWonButton(object sender, EventArgs e) 
         {
-            await Navigation.PushAsync(new ItemWon());
+            Chest chest = null;
+            await Navigation.PushAsync(new ItemWon(chest));
         }
 
         async void storePageButton(object sender, EventArgs e)

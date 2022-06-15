@@ -13,10 +13,12 @@ namespace Don2Loot
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemWon : ContentPage
     {
-        public ItemWon()
+        Chest usedChest;
+        public ItemWon(Chest usedChest)
         {
             InitializeComponent();
             this.BindingContext = this;
+            this.usedChest = usedChest;
         }
 
         private void backButton(object sender, EventArgs e)
@@ -94,7 +96,7 @@ namespace Don2Loot
         private async Task<Reward> ItemDisplayAsync()
         {
             //Temporary hard-coding a variable. Future: get chest name from the store page
-            String chestName = "anime";
+            String chestName = usedChest.ChestName;
             Reward recievedReward = await App.Database.getCrateDrop(chestName);
             rewardImageBind.Source = recievedReward.RewardImage;
             return recievedReward;
