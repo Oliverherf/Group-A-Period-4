@@ -23,7 +23,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>
-                <Label Grid.Row="0" Grid.Column="1" Text="10" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="itemWonCoins"/>
                 <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1">
