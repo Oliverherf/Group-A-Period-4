@@ -36,6 +36,7 @@ namespace Don2Loot
             {
                 database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Don2Loot.db3"));
             }
+
         }
         
 
