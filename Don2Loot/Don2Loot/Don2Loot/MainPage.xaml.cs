@@ -16,7 +16,7 @@ namespace Don2Loot
         {
             InitializeComponent();
             notificationTest();
-
+            this.BindingContext = this;
             //NotificationCenter.Current.NotificationActionTapped += OnLocalNotificationTapped;
         }
 

@@ -38,23 +38,23 @@ namespace Don2Loot
 
         private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var notification = new NotificationRequest
-            {
-                BadgeNumber = 1,
-                Description = "I believe in you",
-                Title = "You got this king",
-                ReturningData = "Dummy data",
-                NotificationId = 1337,
-            };
+            //var notification = new NotificationRequest
+            //{
+            //    BadgeNumber = 1,
+            //    Description = "I believe in you",
+            //    Title = "You got this king",
+            //    ReturningData = "Dummy data",
+            //    NotificationId = 1337,
+            //};
 
-            NotificationCenter.Current.Show(notification);
+            //NotificationCenter.Current.Show(notification);
         }
 
-        private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var task = e.Item as TaskInfo;
-            DisplayAlert("Tapped", $"{task.Name}\n", "OK");
-        }
+        //private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        //{
+        //    var task = e.Item as TaskInfo;
+        //    DisplayAlert("Tapped", $"{task.Name}\n", "OK");
+        //}
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
 
