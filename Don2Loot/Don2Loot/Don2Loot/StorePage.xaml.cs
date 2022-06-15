@@ -21,18 +21,15 @@ namespace Don2Loot
             this.BindingContext = this;
         }
 
-        protected override async void OnAppearing() {
-            base.OnAppearing();
-            List<User> users = new List<User>();
-            users = await App.Database.getUser();
-            storePageCoins.Text = users[0].UserCoins.ToString();
-        }
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             List<Chest> chests = await App.Database.getChest();
             storePageView.FlowItemsSource = chests;
+            //Update coins
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            storePageCoins.Text = users[0].UserCoins.ToString();
         }
 
             private void backButton(object sender, EventArgs e)
