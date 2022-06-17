@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 using Plugin.LocalNotification;
 using System.Windows.Input;
+using System.Collections.Generic;
 
 namespace Don2Loot
 {
@@ -12,6 +13,7 @@ namespace Don2Loot
     public partial class TaskPage : ContentPage
     {
         public ICommand deleteTaskCommand => new Command(deleteButton);
+        public ICommand seeTaskDetailsCommand => new Command(seeTaskDetailsButton);
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         ObservableCollection<Task> tasks = null;
         public TaskPage()
@@ -25,12 +27,15 @@ namespace Don2Loot
             base.OnAppearing();
             tasks = new ObservableCollection<Task>(await App.Database.getTask());
             myListView.ItemsSource = tasks;
+
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            coinsTaskPage.Text = users[0].UserCoins.ToString();
         }
 
         private void Sherlock_TextChanged(object sender, TextChangedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("test");
-            myListView.ItemsSource = task.Where(s => s.Name.StartsWith(e.NewTextValue));
+            myListView.ItemsSource = tasks.Where(s => s.TaskName.Contains(e.NewTextValue));
         }
         public class TaskInfo
         {
@@ -63,6 +68,11 @@ namespace Don2Loot
             NotificationCenter.Current.Cancel(task.Id);
             Navigation.InsertPageBefore(new TaskPage(), this);
             await Navigation.PopAsync();
+        }
+
+        async void seeTaskDetailsButton(object sender) {
+            await Navigation.PushAsync(new TaskDescPage((Task)sender));
+
         }
     }
 }
