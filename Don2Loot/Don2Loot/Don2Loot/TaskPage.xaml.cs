@@ -37,18 +37,9 @@ namespace Don2Loot
             public string Name { get; set; }
         }
 
-        private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //var notification = new NotificationRequest
-            //{
-            //    BadgeNumber = 1,
-            //    Description = "I believe in you",
-            //    Title = "You got this king",
-            //    ReturningData = "Dummy data",
-            //    NotificationId = 1337,
-            //};
-
-            //NotificationCenter.Current.Show(notification);
+            //await Navigation.PushAsync(new Vote((Task)sender)); Does not work yet.
         }
 
         //private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)

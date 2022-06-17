@@ -36,7 +36,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Text="Daily check in" Grid.Row="0" TextColor="#FE931F" FontSize="Large" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                <Label Text="How was your progress on InsertTaskHere?" Grid.Row="1" TextColor="#FE931F" FontSize="Large" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding Name}" Grid.Row="1" TextColor="#FE931F" FontSize="Large" HorizontalTextAlignment="Center"/>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

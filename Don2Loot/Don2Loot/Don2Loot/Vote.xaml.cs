@@ -12,9 +12,13 @@ namespace Don2Loot
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Vote : ContentPage
     {
-        public Vote()
+        Task currentTask;
+        public Vote(Task currentTask)
         {
             InitializeComponent();
+            this.BindingContext = this;
+            this.currentTask = currentTask;
+            
         }
 
         //Update coins
