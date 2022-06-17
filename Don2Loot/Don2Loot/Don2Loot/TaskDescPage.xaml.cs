@@ -10,16 +10,26 @@ using Xamarin.Forms.Xaml;
 namespace Don2Loot {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TaskDescPage : ContentPage {
-        public TaskDescPage() {
+        Task chosenTask;
+        public TaskDescPage(Task chosenTask) {
             InitializeComponent();
+            this.chosenTask = chosenTask;
         }
 
-        //Make sure coins are updated when page is opened
+        
         protected override async void OnAppearing() {
             base.OnAppearing();
+            //Make sure coins are updated when page is opened
             List<User> users = new List<User>();
             users = await App.Database.getUser();
             taskCoins.Text = users[0].UserCoins.ToString();
+
+            //Display correct Task information
+            taskName.Text = chosenTask.TaskName;
+            taskDescription.Text = chosenTask.TaskDescription;
+        }
+        private void backButton(object sender, EventArgs e) {
+            Navigation.PopAsync();
         }
     }
 }

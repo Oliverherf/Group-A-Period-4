@@ -17,6 +17,14 @@ namespace Don2Loot
         {
             InitializeComponent();
         }
+
+        //Make sure coins are updated when page is opened
+        protected override async void OnAppearing() {
+            base.OnAppearing();
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            newTaskCoins.Text = users[0].UserCoins.ToString();
+        }
         private void Cancel(object sender, EventArgs e)
         {
             txtFileText.Text = "";
