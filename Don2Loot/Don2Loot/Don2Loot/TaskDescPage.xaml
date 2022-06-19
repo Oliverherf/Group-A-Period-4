@@ -4,7 +4,7 @@
              x:Class="Don2Loot.TaskDescPage"
              NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="#2D2F30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>

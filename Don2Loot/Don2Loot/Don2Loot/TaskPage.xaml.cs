@@ -14,6 +14,7 @@ namespace Don2Loot
     {
         public ICommand deleteTaskCommand => new Command(deleteButton);
         public ICommand seeTaskDetailsCommand => new Command(seeTaskDetailsButton);
+        public ICommand votePageCommand => new Command(votePageButton);
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         ObservableCollection<Task> tasks = null;
         public TaskPage()
@@ -41,17 +42,6 @@ namespace Don2Loot
         {
             public string Name { get; set; }
         }
-
-        async void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            //await Navigation.PushAsync(new Vote((Task)sender)); Does not work yet.
-        }
-
-        //private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        //{
-        //    var task = e.Item as TaskInfo;
-        //    DisplayAlert("Tapped", $"{task.Name}\n", "OK");
-        //}
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -70,9 +60,14 @@ namespace Don2Loot
             await Navigation.PopAsync();
         }
 
-        async void seeTaskDetailsButton(object sender) {
+        async void seeTaskDetailsButton(object sender) 
+        {
             await Navigation.PushAsync(new TaskDescPage((Task)sender));
+        }
 
+        async void votePageButton(object sender)
+        {
+            await Navigation.PushAsync(new Vote((Task)sender));
         }
     }
 }
