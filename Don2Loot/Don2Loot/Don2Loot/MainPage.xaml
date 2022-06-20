@@ -217,22 +217,6 @@
                                  BorderColor="Orange"
                                  Margin="1">
 
-                        <Button Text="Vote Page"
-                                   TextColor="Orange"
-                                   HorizontalOptions="Center"
-                                   FontSize="Medium"
-                                   FontAttributes="Bold"
-                                   BackgroundColor="White"
-                                   Clicked="VoteButton"/>
-
-                    </Frame>
-
-                    <Frame   Grid.Row="6" 
-                                 Grid.Column="1"
-                                 CornerRadius="15"
-                                 BorderColor="Orange"
-                                 Margin="1">
-
                         <Button Text="Item Won T"
                                    TextColor="Orange"
                                    HorizontalOptions="Center"
@@ -243,7 +227,7 @@
 
                     </Frame>
 
-                    <Frame   Grid.Row="7" 
+                    <Frame   Grid.Row="6" 
                                  Grid.Column="1"
                                  CornerRadius="15"
                                  BorderColor="Orange"

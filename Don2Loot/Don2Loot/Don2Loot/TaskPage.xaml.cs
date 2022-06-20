@@ -4,13 +4,17 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 using Plugin.LocalNotification;
+using System.Windows.Input;
+using System.Collections.Generic;
 
 namespace Don2Loot
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TaskPage : ContentPage
     {
-
+        public ICommand deleteTaskCommand => new Command(deleteButton);
+        public ICommand seeTaskDetailsCommand => new Command(seeTaskDetailsButton);
+        public ICommand votePageCommand => new Command(votePageButton);
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         ObservableCollection<Task> tasks = null;
         public TaskPage()
@@ -24,36 +28,19 @@ namespace Don2Loot
             base.OnAppearing();
             tasks = new ObservableCollection<Task>(await App.Database.getTask());
             myListView.ItemsSource = tasks;
+
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            coinsTaskPage.Text = users[0].UserCoins.ToString();
         }
 
         private void Sherlock_TextChanged(object sender, TextChangedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("test");
-            myListView.ItemsSource = task.Where(s => s.Name.StartsWith(e.NewTextValue));
+            myListView.ItemsSource = tasks.Where(s => s.TaskName.Contains(e.NewTextValue));
         }
         public class TaskInfo
         {
-           public string Name { get; set; }
-        }
-
-        private void myListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var notification = new NotificationRequest
-            {
-                BadgeNumber = 1,
-                Description = "I believe in you",
-                Title = "You got this king",
-                ReturningData = "Dummy data",
-                NotificationId = 1337,
-            };
-
-            NotificationCenter.Current.Show(notification);
-        }
-
-        private void myListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var task = e.Item as TaskInfo;
-            DisplayAlert("Tapped", $"{task.Name}\n", "OK");
+            public string Name { get; set; }
         }
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -62,6 +49,25 @@ namespace Don2Loot
         private void backButton(object sender, EventArgs e)
         {
             Navigation.PopAsync();
+        }
+
+        async void deleteButton(object sender)
+        {
+            var task = (Task)sender;
+            await App.Database.deleteTask((Task)sender);
+            NotificationCenter.Current.Cancel(task.Id);
+            Navigation.InsertPageBefore(new TaskPage(), this);
+            await Navigation.PopAsync();
+        }
+
+        async void seeTaskDetailsButton(object sender) 
+        {
+            await Navigation.PushAsync(new TaskDescPage((Task)sender));
+        }
+
+        async void votePageButton(object sender)
+        {
+            await Navigation.PushAsync(new Vote((Task)sender));
         }
     }
 }

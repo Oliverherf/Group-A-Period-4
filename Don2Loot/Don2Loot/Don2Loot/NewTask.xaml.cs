@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.LocalNotification;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,14 @@ namespace Don2Loot
         {
             InitializeComponent();
         }
+
+        //Make sure coins are updated when page is opened
+        protected override async void OnAppearing() {
+            base.OnAppearing();
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            newTaskCoins.Text = users[0].UserCoins.ToString();
+        }
         private void Cancel(object sender, EventArgs e)
         {
             txtFileText.Text = "";
@@ -30,7 +39,23 @@ namespace Don2Loot
             await App.Database.saveTask(task);
             List<Task> task1 = new List<Task>();
             task1 = await App.Database.getTask();
-            DisplayAlert("Congrats!", "Note is saved!", "Go Back");
+            int taskId = task1[task1.Count() - 1].Id;
+            await DisplayAlert("Congrats!", "Note is saved!", "Go Back");
+            var notification = new NotificationRequest
+            {
+                BadgeNumber = 1,
+                Description = "How did you do on " + task1[task1.Count() - 1].TaskName.ToLower() + "?",
+                Title = task1[task1.Count() - 1].TaskName.ToUpper(),
+                ReturningData = taskId.ToString(),
+                NotificationId = taskId,
+                Schedule =
+                {
+                    NotifyTime = DateTime.Now.AddSeconds(5),
+                    RepeatType = NotificationRepeat.Daily
+                }
+            };
+
+            await NotificationCenter.Current.Show(notification);
         }
         async void backButton(object sender, EventArgs e)
         {
