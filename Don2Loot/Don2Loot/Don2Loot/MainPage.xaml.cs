@@ -6,19 +6,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
+
 
 namespace Don2Loot
 {
     public partial class MainPage : ContentPage
     {
 
+        public ObservableCollection<DescriptionInfo> description = new ObservableCollection<DescriptionInfo>();
+        ObservableCollection<Task> tasks = null;
+
         public MainPage()
         {
             InitializeComponent();
             notificationTest();
             this.BindingContext = this;
-            //NotificationCenter.Current.NotificationActionTapped += OnLocalNotificationTapped;
         }
+
+        protected override async void OnAppearings()
+        {
+            base.OnAppearing();
+            tasks = new ObservableCollection<Task>(await App.Database.getTask());
+            mainPageListView.ItemsSource = description;
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+        }
+
+        public class DescriptionInfo
+        {
+            public string Name { get; set; }
+        }
+  
 
         //private void OnLocalNotificationTapped(NotificationEventArgs e)
         //{
