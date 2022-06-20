@@ -44,7 +44,14 @@ namespace Don2Loot
             users = await App.Database.getUser();
             int coins = users[0].UserCoins;
             mainPageCoins.Text = coins.ToString();
+
+            //List<Task> tasks = new List<Task>();
+            //tasks = await App.Database.getTask();
+            //string taskName = tasks[0].TaskName;
+            //mainPageTaskName.Text = taskName;
         }
+        
+        
 
         private void notificationTest()
         {

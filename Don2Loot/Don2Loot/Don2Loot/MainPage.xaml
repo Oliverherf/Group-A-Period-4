@@ -101,21 +101,11 @@
                            Grid.Column="1"
                            CornerRadius="15">
 
-                        <Label Text="Introduction to C#: Chapter 1" 
+                        <Label Text="" 
                                FontSize="Large" 
                                TextColor="White" 
-                               VerticalOptions="Center"/>
-
-                    </Frame>
-
-                    <Frame BackgroundColor="#FE931F"
-                           Grid.Column="2"
-                           CornerRadius="15">
-
-                        <Label Text="Introduction to C#: Chapter 1" 
-                               FontSize="Large" 
-                               TextColor="White" 
-                               VerticalOptions="Center"/>
+                               VerticalOptions="Center"
+                               x:Name="mainPageTaskName"/>
 
                     </Frame>
 
