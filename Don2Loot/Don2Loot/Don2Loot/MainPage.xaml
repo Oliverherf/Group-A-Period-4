@@ -9,7 +9,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="6"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>   
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -86,20 +86,24 @@
               Margin="0,15,0,70"
               BackgroundColor="#2D2F30">
 
-            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+            <ListView x:Name="mainPageListView"
+                          HasUnevenRows="True"
+                          Grid.Column="0"
+                          Margin="20,0,160,0"
+                          HeightRequest="900"
+                          Rotation="90">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                <Grid>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="6"/>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="200"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Frame BackgroundColor="#FE931F"
-                           Grid.Column="1"
-                           CornerRadius="15">
+                                <Button  Rotation="-90" Text="{Binding Name}" TextColor="White" BackgroundColor="#FE931F" Padding="0,20,10,30" Margin="0,10,10,0" HeightRequest="100" Grid.Column="0"/>
 
                         <Label Text="" 
                                FontSize="Large" 
@@ -111,7 +115,7 @@
 
                 </Grid>
 
-            </ScrollView>
+            <!--/ScrollView-->
 
         </Grid>
 

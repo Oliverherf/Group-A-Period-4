@@ -6,19 +6,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
+
 
 namespace Don2Loot
 {
     public partial class MainPage : ContentPage
     {
 
+        public ObservableCollection<DescriptionInfo> description = new ObservableCollection<DescriptionInfo>();
+        ObservableCollection<Task> tasks = null;
+
         public MainPage()
         {
             InitializeComponent();
             notificationTest();
             this.BindingContext = this;
-            //NotificationCenter.Current.NotificationActionTapped += OnLocalNotificationTapped;
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            tasks = new ObservableCollection<Task>(await App.Database.getTask());
+            mainPageListView.ItemsSource = description;
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            int coins = users[0].UserCoins;
+            mainPageCoins.Text = coins.ToString();
+        }
+
+        public class DescriptionInfo
+        {
+            public string Name { get; set; }
+        }
+  
 
         //private void OnLocalNotificationTapped(NotificationEventArgs e)
         //{
@@ -37,21 +58,6 @@ namespace Don2Loot
         //    };
         //    NotificationCenter.Current.Show(notification);
         //}
-
-        protected override async void OnAppearing()
-        {
-            List<User> users = new List<User>();
-            users = await App.Database.getUser();
-            int coins = users[0].UserCoins;
-            mainPageCoins.Text = coins.ToString();
-
-            //List<Task> tasks = new List<Task>();
-            //tasks = await App.Database.getTask();
-            //string taskName = tasks[0].TaskName;
-            //mainPageTaskName.Text = taskName;
-        }
-        
-        
 
         private void notificationTest()
         {
