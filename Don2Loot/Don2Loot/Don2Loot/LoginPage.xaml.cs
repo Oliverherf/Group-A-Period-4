@@ -17,7 +17,19 @@ namespace Don2Loot
         {
             InitializeComponent();
         }
-
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            if (App.Database == null)
+            {
+                //database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Don2Loot.db3"));
+            }
+            else
+            {
+                Navigation.InsertPageBefore(new MainPage(), this);
+                await Navigation.PopAsync();
+            }
+        }
         private async void Button_Clicked(object sender, EventArgs e)
         {
                 if (string.IsNullOrEmpty(txtName.Text))

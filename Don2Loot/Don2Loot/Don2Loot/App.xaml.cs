@@ -32,13 +32,9 @@ namespace Don2Loot
         {
             base.OnStart();
             //creates database if not already exists on launch
-            if (database == null)
-            {
-                database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Don2Loot.db3"));
-            }
+            
 
         }
-        
         protected override void OnSleep()
         {
 
