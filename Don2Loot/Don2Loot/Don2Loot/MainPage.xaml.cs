@@ -31,6 +31,8 @@ namespace Don2Loot
             mainPageListView.ItemsSource = description;
             List<User> users = new List<User>();
             users = await App.Database.getUser();
+            int coins = users[0].UserCoins;
+            mainPageCoins.Text = coins.ToString();
         }
 
         public class DescriptionInfo
