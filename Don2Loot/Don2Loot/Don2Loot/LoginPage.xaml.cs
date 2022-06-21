@@ -17,7 +17,7 @@ namespace Don2Loot
         {
             InitializeComponent();
         }
-        protected override async void OnAppearing()
+        /*protected override async void OnAppearing()
         {
             base.OnAppearing();
             if (App.Database == null)
@@ -29,7 +29,7 @@ namespace Don2Loot
                 Navigation.InsertPageBefore(new MainPage(), this);
                 await Navigation.PopAsync();
             }
-        }
+        }*/
         private async void Button_Clicked(object sender, EventArgs e)
         {
                 if (string.IsNullOrEmpty(txtName.Text))
