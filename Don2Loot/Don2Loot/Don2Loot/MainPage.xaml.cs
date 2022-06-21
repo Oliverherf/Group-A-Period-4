@@ -22,7 +22,6 @@ namespace Don2Loot
             InitializeComponent();
             notificationTest();
             this.BindingContext = this;
-            NotificationCenter.Current.NotificationActionTapped += NotificationActionTapped;
         }
 
         protected override async void OnAppearing()
@@ -39,13 +38,6 @@ namespace Don2Loot
         public class DescriptionInfo
         {
             public string Name { get; set; }
-        }
-
-
-        private void NotificationActionTapped(NotificationActionEventArgs e)
-        {
-            //if(e.ActionId)
-            DisplayAlert("YES", "YES", "YES");
         }
 
         private void notificationTest()
