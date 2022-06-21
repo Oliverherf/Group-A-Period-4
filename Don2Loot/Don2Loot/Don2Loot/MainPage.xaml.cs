@@ -24,7 +24,7 @@ namespace Don2Loot
             this.BindingContext = this;
         }
 
-        protected override async void OnAppearings()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             tasks = new ObservableCollection<Task>(await App.Database.getTask());
@@ -57,13 +57,13 @@ namespace Don2Loot
         //    NotificationCenter.Current.Show(notification);
         //}
 
-        protected override async void OnAppearing()
-        {
-            List<User> users = new List<User>();
-            users = await App.Database.getUser();
-            int coins = users[0].UserCoins;
-            mainPageCoins.Text = coins.ToString();
-        }
+        //protected override async void OnAppearing()
+        //{
+        //    List<User> users = new List<User>();
+        //    users = await App.Database.getUser();
+        //    int coins = users[0].UserCoins;
+        //    mainPageCoins.Text = coins.ToString();
+        //}
 
         private void notificationTest()
         {
