@@ -9,12 +9,12 @@
     <Grid BackgroundColor="#2D2F30" VerticalOptions="FillAndExpand">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="6"/>
-            <ColumnDefinition Width="*"/>   
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="6"/> 
+            <ColumnDefinition Width="*"/> 
+            <ColumnDefinition Width="*"/> 
+            <ColumnDefinition Width="*"/> 
+            <ColumnDefinition Width="*"/> 
+            <ColumnDefinition Width="6"/> 
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
