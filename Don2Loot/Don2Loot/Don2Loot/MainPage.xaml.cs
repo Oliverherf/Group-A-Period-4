@@ -1,4 +1,5 @@
 ﻿using Plugin.LocalNotification;
+using Plugin.LocalNotification.EventArgs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
-
 
 namespace Don2Loot
 {
@@ -22,6 +22,7 @@ namespace Don2Loot
             InitializeComponent();
             notificationTest();
             this.BindingContext = this;
+            NotificationCenter.Current.NotificationActionTapped += NotificationActionTapped;
         }
 
         protected override async void OnAppearing()
@@ -39,25 +40,13 @@ namespace Don2Loot
         {
             public string Name { get; set; }
         }
-  
 
-        //private void OnLocalNotificationTapped(NotificationEventArgs e)
-        //{
-        //    var notification = new NotificationRequest
-        //    {
-        //        BadgeNumber = 1,
-        //        Description = "Did you take any steps into make your future better?",
-        //        Title = "What did you do Today?",
-        //        ReturningData = "Dummy Data",
-        //        NotificationId = 1337,
-        //        Schedule =
-        //        {
-        //           NotifyTime = DateTime.Now.AddSeconds(10)
-        //        }
 
-        //    };
-        //    NotificationCenter.Current.Show(notification);
-        //}
+        private void NotificationActionTapped(NotificationActionEventArgs e)
+        {
+            //if(e.ActionId)
+            DisplayAlert("YES", "YES", "YES");
+        }
 
         private void notificationTest()
         {

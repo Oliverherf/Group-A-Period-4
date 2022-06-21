@@ -1,4 +1,6 @@
 ﻿using Plugin.LocalNotification;
+using Plugin.LocalNotification.AndroidOption;
+using Plugin.LocalNotification.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +14,7 @@ namespace Don2Loot
 {
     public partial class NewTask : ContentPage
     {
-           
+        //private readonly NotificationSerializer notificationSerializer;
         public NewTask()
         {
             InitializeComponent();
@@ -37,25 +39,31 @@ namespace Don2Loot
             task.TaskDescription = txtFileText.Text;
             task.TaskName = txtFileName.Text;
             await App.Database.saveTask(task);
-            List<Task> task1 = new List<Task>();
-            task1 = await App.Database.getTask();
-            int taskId = task1[task1.Count() - 1].Id;
-            await DisplayAlert("Congrats!", "Note is saved!", "Go Back");
+            List<Task> tasks = new List<Task>();
+            tasks = await App.Database.getTask();
+            int taskId = tasks[tasks.Count() - 1].Id;
+            await DisplayAlert("Congrats!", "Task saved", "Ok");
+
             var notification = new NotificationRequest
             {
                 BadgeNumber = 1,
-                Description = "How did you do on " + task1[task1.Count() - 1].TaskName.ToLower() + "?",
-                Title = task1[task1.Count() - 1].TaskName.ToUpper(),
+                Description = "How did you do on " + tasks[tasks.Count() - 1].TaskName.ToLower() + "?",
+                Title = tasks[tasks.Count() - 1].TaskName.ToUpper(),
                 ReturningData = taskId.ToString(),
                 NotificationId = taskId,
                 Schedule =
                 {
                     NotifyTime = DateTime.Now.AddSeconds(5),
                     RepeatType = NotificationRepeat.Daily
+                },
+                Android =
+                {
+                    Priority = AndroidNotificationPriority.Max
                 }
             };
 
             await NotificationCenter.Current.Show(notification);
+            await Navigation.PopAsync();
         }
         async void backButton(object sender, EventArgs e)
         {
