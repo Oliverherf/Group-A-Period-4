@@ -5,7 +5,7 @@
              Title="Main Page"
              NavigationPage.HasNavigationBar="false">
 
-    <Grid BackgroundColor="#2D2F30" VerticalOptions="FillAndExpand">
+    <Grid BackgroundColor="#2D2F30">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="6"/> 
@@ -79,31 +79,33 @@
                FontAttributes="Bold">
         </Label>
 
-        <Grid Grid.Row="2" 
+        <!--<Frame Grid.Row="3" 
               Grid.Column="0" 
-              Grid.RowSpan="2"
+              
               Grid.ColumnSpan="6"
-              Margin="0,15,0,70"
-              BackgroundColor="#2D2F30">
+              BackgroundColor="red">-->
 
             <ListView x:Name="mainPageListView"
                           HasUnevenRows="True"
                           Grid.Column="0"
-                          Margin="20,0,160,0"
-                          HeightRequest="900"
-                          Rotation="90">
+                          Grid.Row="2"
+                          Grid.RowSpan="2"
+                          Grid.ColumnSpan="6"
+                          Rotation="90"
+                      BackgroundColor="red"
+                          >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <!--ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">-->
-                            <Grid>
+                            <Grid RowSpacing="10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="4*"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Button  Rotation="-90" Text="{Binding Name}" TextColor="White" BackgroundColor="#FE931F" Padding="0,20,10,30" Margin="0,10,10,0" HeightRequest="100" Grid.Column="0"/>
+                                <Button  Rotation="-90" Text="{Binding TaskDescription}" TextColor="White" BackgroundColor="#FE931F" Padding="0,20,10,30" Margin="0,10,10,0" HeightRequest="100" Grid.Column="0"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -112,7 +114,7 @@
 
             <!--/ScrollView-->
 
-        </Grid>
+        <!--</Frame>-->
 
         <Frame BackgroundColor="White"
                Grid.Row="3"
