@@ -49,11 +49,11 @@ namespace Don2Loot
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-                if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtEmail.Text))
-                {
-                    await DisplayAlert("Warning!", "All fields must be filled in!", "Ok");
-                    return;
-                }
+            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtEmail.Text))
+            {
+                await DisplayAlert("Warning!", "All fields must be filled in!", "Ok");
+                return;
+            }
 
             if (txtName.Text.Length > 20 && txtName.Text.Length < 2)
                 {
@@ -61,71 +61,83 @@ namespace Don2Loot
                     return;
                 }
 
-                if (!IsAllLetters(txtName.Text))
+            if (!IsAllLetters(txtName.Text))
+            {
+                await DisplayAlert("Warning!", "Username must only contain letters", "Ok");
+                return;
+            }
+
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                await DisplayAlert("Warning!", "Email is not valid", "Ok");
+                return;
+            }
+
+            try
+            {
+            var image = await signature.GetImageStreamAsync(SignaturePad.Forms.SignatureImageFormat.Png);
+            var mStream = (MemoryStream)image;
+            byte[] data = mStream.ToArray();
+            string base64Val = Convert.ToBase64String(data);
+            lblBase64Value.Text = base64Val;
+            imgSignature.Source = ImageSource.FromStream(() => mStream);
+            }
+            catch (Exception ex)
+            {
+            await DisplayAlert("Error", ex.Message.ToString(), "Ok");
+            }
+            User user = new User();
+            user.UserName = txtName.Text;
+            user.UserEmail = txtEmail.Text;
+            user.UserSignature = lblBase64Value.Text;
+            bool userExists = false;
+            List<User> users = new List<User>();
+            foreach (var oldUser in users)
+            {
+                if(oldUser.UserEmail == txtEmail.Text)
                 {
-                    await DisplayAlert("Warning!", "Username must only contain letters", "Ok");
-                    return;
+                    userExists = true;
+                    user = oldUser;
+                    break;
                 }
-
-                if (!IsValidEmail(txtEmail.Text))
-                {
-                    await DisplayAlert("Warning!", "Email is not valid", "Ok");
-                    return;
-                }
-
-                 try
-                 {
-                    var image = await signature.GetImageStreamAsync(SignaturePad.Forms.SignatureImageFormat.Png);
-                    var mStream = (MemoryStream)image;
-                    byte[] data = mStream.ToArray();
-                    string base64Val = Convert.ToBase64String(data);
-                    lblBase64Value.Text = base64Val;
-                    imgSignature.Source = ImageSource.FromStream(() => mStream);
-                 }
-                 catch (Exception ex)
-                 {
-                    await DisplayAlert("Error", ex.Message.ToString(), "Ok");
-                 }
-                contact.Email = txtEmail.Text;
-                contact.Name = txtName.Text.ToUpper();
-
-                User user = new User();
-                user.UserName = txtName.Text;
-                user.UserEmail = txtEmail.Text;
-                user.UserSignature = lblBase64Value.Text;
+            }
+            contact.Email = user.UserEmail;
+            contact.Name = user.UserName.ToUpper();
+            if (userExists)
+            {
+                await App.Database.updateIsLoggedIn(user.UserEmail, true);
+            }
+            else
+            {
                 await App.Database.saveUser(user);
-
-                var mainPage = new MainPage();
-                mainPage.BindingContext = contact;
-                Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
-                await Navigation.PopAsync();                    //popping current page off the navigation stack (Mainpage is now the main page/root page
-
-                
+            }
+            var mainPage = new MainPage();
+            mainPage.BindingContext = contact;
+            Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
+            await Navigation.PopAsync();                    //popping current page off the navigation stack (Mainpage is now the main page/root page
         }
 
-            public bool IsAllLetters(string s)
+        public bool IsAllLetters(string s)
+        {
+            foreach (char c in s)
             {
-                foreach (char c in s)
-                {
-                    if (!Char.IsLetter(c))
-                        return false;
-                }
-                return true;
-            }
-            public bool IsValidEmail(string email)
-            {
-                try
-                {
-                    var addr = new System.Net.Mail.MailAddress(email);
-                    return addr.Address == email;
-                }
-                catch
-                {
+                if (!Char.IsLetter(c))
                     return false;
-                }
             }
-
-       
+            return true;
+        }
+        public bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 
     internal class Contact

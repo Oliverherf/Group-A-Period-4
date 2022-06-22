@@ -162,6 +162,10 @@ namespace Don2Loot
         {
             return _database.ExecuteAsync("UPDATE User SET usercoins = ? WHERE useremail = ?", newUserCoins, PK);
         }
+        public Task<int> updateIsLoggedIn(string PK, bool isLoggedIn)
+        {
+            return _database.ExecuteAsync("UPDATE User SET isloggedin = ? WHERE useremail = ?", isLoggedIn, PK);
+        }
 
         //Update specific fields of the tasks table from a specific task based on the PK
         public Task<int> updateTaskName(int PK, string newTaskName)
