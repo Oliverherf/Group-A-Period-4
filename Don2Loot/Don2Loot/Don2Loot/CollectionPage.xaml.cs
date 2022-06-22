@@ -58,7 +58,10 @@ namespace Don2Loot
                 {
                     foreach(var img in images2[i])
                     {
-                        images[i].Add(new image() { Image = img.RewardImage });
+                        if (img.isUnlocked)
+                        {
+                            images[i].Add(new image() { Image = img.RewardImage });
+                        }
                     }
                 }
             }

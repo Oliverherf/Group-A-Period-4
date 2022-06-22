@@ -21,6 +21,7 @@ namespace Don2Loot.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
 
+            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#2D2F30"));
             NotificationCenter.NotifyNotificationTapped(Intent);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
