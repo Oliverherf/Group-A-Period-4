@@ -31,7 +31,15 @@ namespace Don2Loot
             mainPageListView.ItemsSource = tasks;
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            int coins = users[0].UserCoins;
+            User user = new User();
+            foreach (User tempUser in users)
+            {
+                if (tempUser.IsLoggedIn)
+                {
+                    user = tempUser;
+                }
+            }
+            int coins = user.UserCoins;
             mainPageCoins.Text = coins.ToString();
         }
 
@@ -45,7 +53,7 @@ namespace Don2Loot
             var notification = new NotificationRequest
             {
                 BadgeNumber = 1,
-                Description = "Did you take any steps into make your future better?",
+                Description = "Did you take any steps into making your future better?",
                 Title = "What did you do Today?",
                 ReturningData = "Dummy Data",
                 NotificationId = 1337,

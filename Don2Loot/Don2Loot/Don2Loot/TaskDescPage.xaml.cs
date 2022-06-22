@@ -22,7 +22,15 @@ namespace Don2Loot {
             //Make sure coins are updated when page is opened
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            taskCoins.Text = users[0].UserCoins.ToString();
+            User user = new User();
+            foreach (User tempUser in users)
+            {
+                if (tempUser.IsLoggedIn)
+                {
+                    user = tempUser;
+                }
+            }
+            taskCoins.Text = user.UserCoins.ToString();
 
             //Display correct Task information
             taskName.Text = chosenTask.TaskName;

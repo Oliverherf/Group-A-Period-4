@@ -26,7 +26,15 @@ namespace Don2Loot
             base.OnAppearing();
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            itemWonCoins.Text = users[0].UserCoins.ToString();
+            User user = new User();
+            foreach (User tempUser in users)
+            {
+                if (tempUser.IsLoggedIn)
+                {
+                    user = tempUser;
+                }
+            }
+            itemWonCoins.Text = user.UserCoins.ToString();
         }
 
             private void backButton(object sender, EventArgs e)

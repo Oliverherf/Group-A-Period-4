@@ -43,33 +43,27 @@ namespace Don2Loot
             {
                 var mainPage = new MainPage();
                 mainPage.BindingContext = contact;
-                Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
+                Navigation.InsertPageBefore(mainPage, this);
                 await Navigation.PopAsync();
             }
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-                if (string.IsNullOrEmpty(txtName.Text))
+                if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtEmail.Text))
                 {
-                    await DisplayAlert("Warning!", "All fields shoud be filled in!", "Ok");
+                    await DisplayAlert("Warning!", "All fields must be filled in!", "Ok");
                     return;
                 }
-                if (string.IsNullOrEmpty(txtEmail.Text))
-                {
-                    await DisplayAlert("Warning!", "All fields shoud be filled in!", "Ok");
-                    return;
-                }  
 
             if (txtName.Text.Length > 20 && txtName.Text.Length < 2)
                 {
-                    //DisplayAlert("Alert", txtUserName.MaxLength.ToString(), "ok");
                     await DisplayAlert("Warning!", "Username must contain 2-20 characters", "Ok");
                     return;
                 }
 
                 if (!IsAllLetters(txtName.Text))
                 {
-                    await DisplayAlert("Warning!", "Username should only contain letters", "Ok");
+                    await DisplayAlert("Warning!", "Username must only contain letters", "Ok");
                     return;
                 }
 
