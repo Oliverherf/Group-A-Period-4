@@ -89,13 +89,14 @@
                           Rotation="90"
                           HeightRequest="1080"
                           SelectionMode="None"
-                          SeparatorVisibility="None">
+                          SeparatorVisibility="None"
+                          >
             <ListView.Header>
                 <StackLayout HeightRequest="0" />
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell IsEnabled="False">
 
                         <Frame BackgroundColor="#FE931F" Padding="5" Margin="15" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" CornerRadius="40" Rotation="-90">
                             <Label WidthRequest="40" Text="{Binding TaskName}" HorizontalTextAlignment="Center" FontSize="30"></Label>
