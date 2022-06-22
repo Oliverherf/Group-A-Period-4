@@ -25,7 +25,15 @@ namespace Don2Loot
             base.OnAppearing();
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            newTaskCoins.Text = users[0].UserCoins.ToString();
+            User user = new User();
+            foreach (User tempUser in users)
+            {
+                if (tempUser.IsLoggedIn)
+                {
+                    user = tempUser;
+                }
+            }
+            newTaskCoins.Text = user.UserCoins.ToString();
         }
         private void Cancel(object sender, EventArgs e)
         {
@@ -42,7 +50,6 @@ namespace Don2Loot
             List<Task> tasks = new List<Task>();
             tasks = await App.Database.getTask();
             int taskId = tasks[tasks.Count() - 1].Id;
-            await DisplayAlert("Congrats!", "Task saved", "Ok");
 
             var notification = new NotificationRequest
             {

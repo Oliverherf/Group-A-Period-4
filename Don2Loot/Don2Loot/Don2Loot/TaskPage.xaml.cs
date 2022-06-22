@@ -31,7 +31,15 @@ namespace Don2Loot
 
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            coinsTaskPage.Text = users[0].UserCoins.ToString();
+            User user = new User();
+            foreach (User tempUser in users)
+            {
+                if (tempUser.IsLoggedIn)
+                {
+                    user = tempUser;
+                }
+            }
+            coinsTaskPage.Text = user.UserCoins.ToString();
         }
 
         private void Sherlock_TextChanged(object sender, TextChangedEventArgs e)

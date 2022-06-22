@@ -24,7 +24,15 @@ namespace Don2Loot
             base.OnAppearing();
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            voteCoins.Text = users[0].UserCoins.ToString();
+            User user = new User();
+            foreach(User tempUser in users)
+            {
+                if(tempUser.IsLoggedIn)
+                {
+                    user = tempUser;
+                }
+            }
+            voteCoins.Text = user.UserCoins.ToString();
 
             taskQuestion.Text = "How did you do on " + currentTask.TaskName;
             
@@ -35,23 +43,36 @@ namespace Don2Loot
         }
         async void setBackButton(object sender, EventArgs e)
         {
-            //do something aka set notification, cancel streak, etc.
-            await DisplayAlert("U+1F62D", "YOU LOST YOUR STREAK", "Ok");  //testing purposes
+            await DisplayAlert("Alert", "YOU LOST YOUR STREAK", "Ok");
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            await App.Database.updateUserStreak(users[0].UserEmail, 0);
+            User user = new User();
+            foreach (User tempUser in users)
+            {
+                if (tempUser.IsLoggedIn)
+                {
+                    user = tempUser;
+                }
+            }
+            await App.Database.updateUserStreak(user.UserEmail, 0);
             await Navigation.PopAsync();
         }
         async void victoryButton(object sender, EventArgs e)
         {
-            //do something else aka set notification, advance streak, award points, etc.
-            await DisplayAlert("U+1F604", "GOOD JOB", "Ok");    //testing purposes
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            int newStreak = users[0].UserStreak + 1;
-            int amountOfCoins = users[0].UserCoins + 100 + (10 * users[0].UserStreak); //some calculation has to be done, idk what the calculation should be.
-            await App.Database.updateUserCoins(users[0].UserEmail, amountOfCoins);
-            await App.Database.updateUserStreak(users[0].UserEmail, newStreak);
+            User user = new User();
+            foreach (User tempUser in users)
+            {
+                if (tempUser.IsLoggedIn)
+                {
+                    user = tempUser;
+                }
+            }
+            int newStreak = user.UserStreak + 1;
+            int amountOfCoins = user.UserCoins + 100 + (10 * user.UserStreak);
+            await App.Database.updateUserCoins(user.UserEmail, amountOfCoins);
+            await App.Database.updateUserStreak(user.UserEmail, newStreak);
             await Navigation.PopAsync();
         }
     }
