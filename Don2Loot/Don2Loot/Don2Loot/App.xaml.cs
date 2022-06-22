@@ -52,17 +52,29 @@ namespace Don2Loot
         private async void OnLocalNotificationTapped(NotificationEventArgs e)
         {
             var returningData = e.Request.ReturningData;
-            Task currentTask;
+            Task currentTask = null;
             if (int.TryParse(returningData, out var id))
             {
                 List<Task> tasks = new List<Task>();
                 tasks = await App.Database.getTask();
-                currentTask = tasks[id];
-                await ((ContentPage)MainPage).Navigation.PushModalAsync(new Vote(currentTask));
+                foreach (var task in tasks)
+                {
+                    if(task.Id == id)
+                    {
+                        currentTask = task;
+                    }
+                }
+                if(currentTask == null)
+                {
+                    await ((NavigationPage)MainPage).DisplayAlert("Error", "Task could not be found", "Ok");
+                    return;
+                }
+                
+                await (MainPage).Navigation.PushAsync(new Vote(currentTask));
             }
             else
             {
-                await ((NavigationPage)MainPage).DisplayAlert("Error", "Task could not be found", "Ok");
+                return;
             }
 
             
