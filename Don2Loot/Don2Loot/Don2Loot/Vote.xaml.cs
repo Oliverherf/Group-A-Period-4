@@ -39,7 +39,7 @@ namespace Don2Loot
             await DisplayAlert("U+1F62D", "YOU LOST YOUR STREAK", "Ok");  //testing purposes
             List<User> users = new List<User>();
             users = await App.Database.getUser();
-            App.Database.updateUserStreak(users[0].UserEmail, 0);
+            await App.Database.updateUserStreak(users[0].UserEmail, 0);
             await Navigation.PopAsync();
         }
         async void victoryButton(object sender, EventArgs e)
@@ -50,8 +50,8 @@ namespace Don2Loot
             users = await App.Database.getUser();
             int newStreak = users[0].UserStreak + 1;
             int amountOfCoins = users[0].UserCoins + 100 + (10 * users[0].UserStreak); //some calculation has to be done, idk what the calculation should be.
-            App.Database.updateUserCoins(users[0].UserEmail, amountOfCoins);
-            App.Database.updateUserStreak(users[0].UserEmail, newStreak);
+            await App.Database.updateUserCoins(users[0].UserEmail, amountOfCoins);
+            await App.Database.updateUserStreak(users[0].UserEmail, newStreak);
             await Navigation.PopAsync();
         }
     }

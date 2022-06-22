@@ -13,6 +13,11 @@ namespace Don2Loot
 {
     public partial class LoginPage : ContentPage
     {
+        Contact contact = new Contact
+        {
+            Email = "",
+            Name = ""
+        };
         public LoginPage()
         {
             InitializeComponent();
@@ -20,15 +25,27 @@ namespace Don2Loot
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            //if (App.Database == null)
-            //{
-            //    //database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Don2Loot.db3"));
-            //}
-            //else
-            //{
-            //    Navigation.InsertPageBefore(new MainPage(), this);
-            //    await Navigation.PopAsync();
-            //}
+            List<User> users = new List<User>();
+            users = await App.Database.getUser();
+            bool loggedIn = false;
+            foreach (var user in users)
+            {
+                if (user.IsLoggedIn)
+                {
+                    loggedIn = true;
+                    contact.Email = user.UserEmail;
+                    contact.Name = user.UserName.ToUpper();
+                    break;
+                }
+            }
+
+            if (loggedIn)
+            {
+                var mainPage = new MainPage();
+                mainPage.BindingContext = contact;
+                Navigation.InsertPageBefore(mainPage, this);    //inserting page before current page
+                await Navigation.PopAsync();
+            }
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
@@ -70,26 +87,19 @@ namespace Don2Loot
                     string base64Val = Convert.ToBase64String(data);
                     lblBase64Value.Text = base64Val;
                     imgSignature.Source = ImageSource.FromStream(() => mStream);
-
                  }
                  catch (Exception ex)
                  {
                     await DisplayAlert("Error", ex.Message.ToString(), "Ok");
                  }
-            //System.Diagnostics.Debug.WriteLine("Success");
-            var contact = new Contact
-                {
-                    Email = txtEmail.Text,
-                    Name = txtName.Text.ToUpper()
-                };
+                contact.Email = txtEmail.Text;
+                contact.Name = txtName.Text.ToUpper();
 
                 User user = new User();
                 user.UserName = txtName.Text;
                 user.UserEmail = txtEmail.Text;
                 user.UserSignature = lblBase64Value.Text;
-                App.Database.saveUser(user);
-                List<User> user1 = new List<User>();
-                user1 = await App.Database.getUser();
+                await App.Database.saveUser(user);
 
                 var mainPage = new MainPage();
                 mainPage.BindingContext = contact;

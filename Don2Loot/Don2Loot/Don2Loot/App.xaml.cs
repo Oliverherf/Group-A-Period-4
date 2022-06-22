@@ -32,7 +32,6 @@ namespace Don2Loot
             NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
             MainPage = new NavigationPage(new LoginPage());
         }
-
         protected override void OnStart()
         {
             base.OnStart();

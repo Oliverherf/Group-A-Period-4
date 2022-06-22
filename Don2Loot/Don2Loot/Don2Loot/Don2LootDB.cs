@@ -127,6 +127,7 @@ namespace Don2Loot
             user2.UserSignature = user.UserSignature.Trim(specialCharacters);
             user2.UserCoins = 100;
             user2.UserStreak = user.UserStreak;
+            user2.IsLoggedIn = true;
             return _database.InsertAsync(user2);
         }
         public Task<int> saveTask(Task task)
@@ -339,8 +340,11 @@ namespace Don2Loot
         [Column("userstreak")]
         public int UserStreak { get; set; }
 
-        [Column("userCoins")]
+        [Column("usercoins")]
         public int UserCoins { get; set; }
+
+        [Column("isloggedin")]
+        public bool IsLoggedIn { get; set; }
     }
 
     [Table("Task")]
