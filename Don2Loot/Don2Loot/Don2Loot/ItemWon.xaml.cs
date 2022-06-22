@@ -39,8 +39,9 @@ namespace Don2Loot
             await Navigation.PopAsync();
         }
 
-        async void ItemWonButton(object sender, EventArgs e) {
-            //Get an Iem from the chest
+        async void ItemWonButton(object sender, EventArgs e) 
+        {
+            //Get an Item from the chest
             Reward receivedReward = await ItemDisplayAsync();
             openCrateButton.IsVisible = false;
 
@@ -112,10 +113,11 @@ namespace Don2Loot
         private async Task<Reward> ItemDisplayAsync()
         {
             String chestName = usedChest.ChestName;
-            Reward recievedReward = await App.Database.getCrateDrop(chestName);
-            rewardImageBind.Source = recievedReward.RewardImage;
-            return recievedReward;
-            
+            Reward receivedReward = await App.Database.getCrateDrop(chestName);
+            rewardImageBind.Source = receivedReward.RewardImage;
+            receivedReward.isUnlocked = true;
+            await App.Database.saveReward(receivedReward);
+            return receivedReward;
         }
 
     }
