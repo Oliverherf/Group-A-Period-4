@@ -91,6 +91,34 @@ namespace Don2Loot
 
                 generateDBRewards(false, "Winnie_The_Pooh", "Winnie The Pooh", 4, "Cartoon Crate");
 
+                generateDBRewards(false, "Amogus_drip", "Amogus Drip", 1, "Meme Crate");
+
+                generateDBRewards(false, "Gigachad", "Giga Chad", 1, "Meme Crate");
+
+                generateDBRewards(false, "Spiderman_pointing", "Spiderman Pointing", 2, "Meme Crate");
+
+                generateDBRewards(false, "Goku_Drip", "Goku Drip", 2, "Meme Crate");
+
+                generateDBRewards(false, "Big_Chungus", "Big Chungus", 2, "Meme Crate");
+
+                generateDBRewards(false, "Ricardo_Milos", "Ricardo Milos", 3, "Meme Crate");
+
+                generateDBRewards(false, "American_Psycho_Sigma_Male", "Sigma Male", 3, "Meme Crate");
+
+                generateDBRewards(false, "Yes_Chad", "Yes Chad", 3, "Meme Crate");
+
+                generateDBRewards(false, "Are_Ya_Winning_Son", "Amogus Drip", 3, "Meme Crate");
+
+                generateDBRewards(false, "Giorno_Polpo", "Giorno Polpo", 4, "Meme Crate");
+
+                generateDBRewards(false, "Bongo_Cat", "Bongo Cat", 4, "Meme Crate");
+
+                generateDBRewards(false, "Brainlet_Wojak", "Brainlet Wojak", 4, "Meme Crate");
+
+                generateDBRewards(false, "Yes_Chad", "Yes Chad", 4, "Meme Crate");
+
+                generateDBRewards(false, "Butter_Cat", "Butter Cat", 4, "Meme Crate");
+
                 generateDBChests("Anime Crate", 150, "Anime_Crate");
 
                 generateDBChests("Cartoon Crate", 100, "Cartoon_Crate");
