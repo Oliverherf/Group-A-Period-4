@@ -79,36 +79,49 @@
                FontAttributes="Bold">
         </Label>
 
-        <ListView x:Name="mainPageListView"
-                          HasUnevenRows="True"
+        <CollectionView x:Name="mainPageCollectionView"
                           Grid.Column="0"
                           Grid.ColumnSpan="6"
                           Grid.Row="2"
-                          Grid.RowSpan="2"
+                          Grid.RowSpan="1"
                           Margin="0,0,0,0"
-                          Rotation="90"
                           HeightRequest="1080"
                           SelectionMode="None"
-                          SeparatorVisibility="None"
                           >
-            <ListView.Header>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.Header>
                 <StackLayout HeightRequest="0" />
-            </ListView.Header>
-            <ListView.ItemTemplate>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell IsEnabled="False">
+                    <!--<ViewCell IsEnabled="False">
 
-                        <Frame BackgroundColor="#FE931F" Padding="5" Margin="15" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" CornerRadius="40" Rotation="-90">
+                        <Frame BackgroundColor="#FE931F" Padding="5" Margin="15" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" CornerRadius="40">
                             <Label WidthRequest="40" Text="{Binding TaskName}" HorizontalTextAlignment="Center" FontSize="30"></Label>
                         </Frame>
 
-                    </ViewCell>
+                    </ViewCell>-->
+                    <Frame BackgroundColor="#FE931F" Padding="5" Margin="15" CornerRadius="30">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding TaskName}" HorizontalTextAlignment="Center" Grid.Row="0"/>
+                            <Label Text="{Binding TaskDescription}" HorizontalTextAlignment="Center" Grid.Row="1"/>
+                        </Grid>
+                    </Frame>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.Footer>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
                 <StackLayout HeightRequest="0" />
-            </ListView.Footer>
-        </ListView>
+            </CollectionView.Footer>
+        </CollectionView>
 
         <Frame BackgroundColor="White"
                Grid.Row="3"

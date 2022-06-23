@@ -28,7 +28,7 @@ namespace Don2Loot
         {
             base.OnAppearing();
             tasks = new ObservableCollection<Task>(await App.Database.getTask());
-            mainPageListView.ItemsSource = tasks;
+            mainPageCollectionView.ItemsSource = tasks;
             List<User> users = new List<User>();
             users = await App.Database.getUser();
             User user = new User();
