@@ -51,6 +51,7 @@ namespace Don2Loot
         {
             //Get an Item from the chest
             Reward receivedReward = await ItemDisplayAsync();
+            await App.Database.updateRewardIsUnlocked(receivedReward.RewardId, true);
             openCrateButton.IsVisible = false;
 
             //Subtract the chest price from user coin balance
@@ -123,8 +124,6 @@ namespace Don2Loot
             String chestName = usedChest.ChestName;
             Reward receivedReward = await App.Database.getCrateDrop(chestName);
             rewardImageBind.Source = receivedReward.RewardImage;
-            receivedReward.isUnlocked = true;
-            await App.Database.saveReward(receivedReward);
             return receivedReward;
         }
 

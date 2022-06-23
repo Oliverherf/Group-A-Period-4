@@ -107,7 +107,7 @@ namespace Don2Loot
 
                 generateDBRewards(false, "Yes_Chad", "Yes Chad", 3, "Meme Crate");
 
-                generateDBRewards(false, "Are_Ya_Winning_Son", "Amogus Drip", 3, "Meme Crate");
+                generateDBRewards(false, "Are_Ya_Winning_Son", "Are Ya Winning Son?", 3, "Meme Crate");
 
                 generateDBRewards(false, "Giorno_Polpo", "Giorno Polpo", 4, "Meme Crate");
 
@@ -218,32 +218,27 @@ namespace Don2Loot
         //Update specific fields of the Chest table from a specific chest based on the PK
         public Task<int> updateChestPrice(string PK, int newChestPrice)
         {
-            return _database.ExecuteAsync("UPDATE Chest SET chestPrice = ? WHERE chestname = ?", PK, newChestPrice);
+            return _database.ExecuteAsync("UPDATE Chest SET chestPrice = ? WHERE chestname = ?", newChestPrice, PK);
         }
 
         //Update specific fields of the Reward table from a specific chest based on the PK
         public Task<int> updateRewardIsUnlocked(int PK, bool newRewardIsUnlocked)
         {
-            return _database.ExecuteAsync("UPDATE Reward SET isunlocked = ? WHERE rewardid = ?", PK, newRewardIsUnlocked);
+            return _database.ExecuteAsync("UPDATE Reward SET isunlocked = ? WHERE rewardid = ?", newRewardIsUnlocked, PK);
         }
         public Task<int> updateRewardImage(int PK, string newRewardImage)
         {
             newRewardImage = newRewardImage.Trim(specialCharacters);
-            return _database.ExecuteAsync("UPDATE Reward SET rewardimage = ? WHERE rewardid = ?", PK, newRewardImage);
+            return _database.ExecuteAsync("UPDATE Reward SET rewardimage = ? WHERE rewardid = ?", newRewardImage, PK);
         }
         public Task<int> updateRewardRarity(int PK, string newRewardRarity)
         {
-            return _database.ExecuteAsync("UPDATE Reward SET rewardrarity = ? WHERE rewardid = ?", PK, newRewardRarity);
+            return _database.ExecuteAsync("UPDATE Reward SET rewardrarity = ? WHERE rewardid = ?", newRewardRarity, PK);
         }
         public Task<int> updateRewardName(int PK, string newRewardName)
         {
             newRewardName = newRewardName.Trim(specialCharacters);
-            return _database.ExecuteAsync("UPDATE Reward SET rewardname = ? WHERE rewardid = ?", PK, newRewardName);
-        }
-        public Task<int> updateRewardDropChance(int PK, string newRewardDropChance)
-        {
-            newRewardDropChance = newRewardDropChance.Trim(specialCharacters);
-            return _database.ExecuteAsync("UPDATE Reward SET isunlocked = ? WHERE rewardid = ?", PK, newRewardDropChance);
+            return _database.ExecuteAsync("UPDATE Reward SET rewardname = ? WHERE rewardid = ?", newRewardName, PK);
         }
 
         //Delete Tables from database
