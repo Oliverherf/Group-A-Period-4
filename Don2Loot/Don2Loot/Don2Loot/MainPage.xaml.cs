@@ -76,14 +76,9 @@ namespace Don2Loot
             await Navigation.PushAsync(new NewTask());
         }
 
-        async void TaskPageButton(object sender, EventArgs e)
+        async void taskPageButton(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TaskPage());
-        }
-        async void ItemWonButton(object sender, EventArgs e) 
-        {
-            Chest chest = null;
-            await Navigation.PushAsync(new ItemWon(chest));
         }
 
         async void storePageButton(object sender, EventArgs e)

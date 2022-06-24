@@ -37,8 +37,8 @@
                Grid.Column="0"
                Grid.Row="0"
                HorizontalOptions="Start"
-               WidthRequest="35"/>
-            <!--<Button Text="&lt;" TextColor="#FE931F" FontSize="50" Padding="25,0,0,0" Grid.Row="0" Grid.Column="0" Clicked="backButton" BackgroundColor="#2D2F30" HorizontalOptions="Start"/>-->
+               WidthRequest="35"
+               Margin="25, 0, 0, 0"/>
             <Label Grid.Row="0" Grid.Column="1" Text="" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" x:Name="mainPageCoins"/>
             <Image Grid.Row="0" Grid.Column="2" Source="coin" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
         </Grid>
@@ -129,8 +129,6 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
@@ -188,7 +186,7 @@
                                    FontSize="Medium"
                                    FontAttributes="Bold"
                                    BackgroundColor="White"
-                                   Clicked="TaskPageButton"/>
+                                   Clicked="taskPageButton"/>
 
                     </Frame>
 
