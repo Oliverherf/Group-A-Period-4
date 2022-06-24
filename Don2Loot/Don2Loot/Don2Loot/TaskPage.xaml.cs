@@ -14,7 +14,6 @@ namespace Don2Loot
     {
         public ICommand deleteTaskCommand => new Command(deleteButton);
         public ICommand seeTaskDetailsCommand => new Command(seeTaskDetailsButton);
-        public ICommand votePageCommand => new Command(votePageButton);
         public ObservableCollection<TaskInfo> task = new ObservableCollection<TaskInfo>();
         ObservableCollection<Task> tasks = null;
         public TaskPage()
