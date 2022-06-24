@@ -21,7 +21,8 @@
                 <!--Margin="0 20"-->
                 <signature:SignaturePadView x:Name="signature" HorizontalOptions="FillAndExpand" StrokeColor="#FE931F" VerticalOptions="StartAndExpand" HeightRequest="300" MinimumHeightRequest="300" BackgroundColor="#707070" />
         </Frame>
-        <Button
+            <Label Text="By signing the form I hereby promise myself to take steps to improve my future" HorizontalTextAlignment="Center" TextColor="#707070" FontSize="15" Margin="15"/>
+            <Button
                 Text="Submit"
                 x:Name="btnSubmit"
                 TextColor="White"
@@ -34,7 +35,7 @@
                 WidthRequest="100"
                 HeightRequest="50"
                 Clicked ="Button_Clicked"/>
-         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="2">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="210"/>
                         <RowDefinition Height="20"/>
