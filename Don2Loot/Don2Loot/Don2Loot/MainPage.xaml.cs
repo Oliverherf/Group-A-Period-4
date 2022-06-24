@@ -80,11 +80,6 @@ namespace Don2Loot
         {
             await Navigation.PushAsync(new TaskPage());
         }
-
-        async void TestPageButton(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TaskCompleted());
-        }
         async void ItemWonButton(object sender, EventArgs e) 
         {
             Chest chest = null;
