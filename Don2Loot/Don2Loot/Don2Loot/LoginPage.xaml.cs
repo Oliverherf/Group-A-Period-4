@@ -72,26 +72,23 @@ namespace Don2Loot
                 await DisplayAlert("Warning!", "Email is not valid", "Ok");
                 return;
             }
-
-            try
-            {
-            var image = await signature.GetImageStreamAsync(SignaturePad.Forms.SignatureImageFormat.Png);
-            var mStream = (MemoryStream)image;
-            byte[] data = mStream.ToArray();
-            string base64Val = Convert.ToBase64String(data);
-            lblBase64Value.Text = base64Val;
-            imgSignature.Source = ImageSource.FromStream(() => mStream);
-            }
-            catch (Exception ex)
-            {
-            await DisplayAlert("Error", ex.Message.ToString(), "Ok");
-            }
-            User user = new User();
-            user.UserName = txtName.Text;
-            user.UserEmail = txtEmail.Text;
-            user.UserSignature = lblBase64Value.Text;
-            bool userExists = false;
-            List<User> users = new List<User>();
+                var image = await signature.GetImageStreamAsync(SignaturePad.Forms.SignatureImageFormat.Png);
+                if(image == null) 
+                {
+                    await DisplayAlert("Warning", "All fields must be filled in!", "Ok");
+                    return;
+                }
+                var mStream = (MemoryStream)image;
+                byte[] data = mStream.ToArray();
+                string base64Val = Convert.ToBase64String(data);
+                lblBase64Value.Text = base64Val;
+                imgSignature.Source = ImageSource.FromStream(() => mStream);
+                User user = new User();
+                user.UserName = txtName.Text;
+                user.UserEmail = txtEmail.Text;
+                user.UserSignature = lblBase64Value.Text;
+                bool userExists = false;
+                List<User> users = new List<User>();
             foreach (var oldUser in users)
             {
                 if(oldUser.UserEmail == txtEmail.Text)
