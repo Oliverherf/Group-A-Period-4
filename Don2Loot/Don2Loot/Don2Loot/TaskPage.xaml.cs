@@ -72,10 +72,5 @@ namespace Don2Loot
         {
             await Navigation.PushAsync(new TaskDescPage((Task)sender));
         }
-
-        async void votePageButton(object sender)
-        {
-            await Navigation.PushAsync(new Vote((Task)sender));
-        }
     }
 }
