@@ -81,12 +81,10 @@ namespace Don2Loot
                 var mStream = (MemoryStream)image;
                 byte[] data = mStream.ToArray();
                 string base64Val = Convert.ToBase64String(data);
-                lblBase64Value.Text = base64Val;
-                imgSignature.Source = ImageSource.FromStream(() => mStream);
                 User user = new User();
                 user.UserName = txtName.Text;
                 user.UserEmail = txtEmail.Text;
-                user.UserSignature = lblBase64Value.Text;
+                user.UserSignature = base64Val;
                 bool userExists = false;
                 List<User> users = new List<User>();
             foreach (var oldUser in users)

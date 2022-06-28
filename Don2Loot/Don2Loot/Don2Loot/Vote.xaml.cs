@@ -55,7 +55,8 @@ namespace Don2Loot
                 }
             }
             await App.Database.updateUserStreak(user.UserEmail, 0);
-            await Navigation.PopAsync();
+            Navigation.InsertPageBefore(new LoginPage(), this);
+            await Navigation.PopToRootAsync();
         }
         async void victoryButton(object sender, EventArgs e)
         {
@@ -73,7 +74,8 @@ namespace Don2Loot
             int amountOfCoins = user.UserCoins + 100 + (10 * user.UserStreak);
             await App.Database.updateUserCoins(user.UserEmail, amountOfCoins);
             await App.Database.updateUserStreak(user.UserEmail, newStreak);
-            await Navigation.PopAsync();
+            Navigation.InsertPageBefore(new LoginPage(), this);
+            await Navigation.PopToRootAsync();
         }
     }
 }

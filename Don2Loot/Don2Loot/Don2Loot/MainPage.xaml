@@ -165,7 +165,7 @@
                                  BorderColor="Orange"
                                  Margin="1">
 
-                        <Button Text="NEW TASKS"
+                        <Button Text="NEW TASK"
                                    TextColor="Orange"
                                    HorizontalOptions="Center"
                                    FontSize="Medium"
@@ -180,7 +180,7 @@
                                  BorderColor="Orange"
                                  Margin="1">
 
-                        <Button Text="Task Page"
+                        <Button Text="TASKS"
                                    TextColor="Orange"
                                    HorizontalOptions="Center"
                                    FontSize="Medium"
@@ -196,7 +196,7 @@
                                  BorderColor="Orange"
                                  Margin="1">
 
-                        <Button Text="Store Page"
+                        <Button Text="STORE"
                                    TextColor="Orange"
                                    HorizontalOptions="Center"
                                    FontSize="Medium"

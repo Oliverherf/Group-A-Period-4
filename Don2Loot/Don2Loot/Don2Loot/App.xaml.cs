@@ -28,9 +28,9 @@ namespace Don2Loot
         public App()
         {
             InitializeComponent();
+            MainPage = new NavigationPage(new LoginPage());
             notificationSerializer = new NotificationSerializer();
             NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
-            MainPage = new NavigationPage(new LoginPage());
         }
         protected override void OnStart()
         {

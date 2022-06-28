@@ -4,7 +4,7 @@
              x:Class="Don2Loot.CollectionPage"
              NavigationPage.HasNavigationBar="false">
 
-    <Grid BackgroundColor="#2D2F30" >
+    <Grid BackgroundColor="#2D2F30">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
